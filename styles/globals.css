@@ -24,3 +24,101 @@ a {
     background: black;
   }
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("../public/bgwall.jpg");
+  background-size: cover;
+  background-repeat:  no-repeat;
+}
+
+.logo {
+  width: 90%;
+  max-width: 1000px;
+  height: 100%;
+  color: white;
+  animation: logo 2s ease-in-out infinite;
+  
+}
+
+.logo path, .logo circle {
+  filter: drop-shadow(0 0 10px #fff)
+  drop-shadow(0 0 10px rgba(0, 255, 255, 1))
+  drop-shadow(0 0 100px rgba(0, 255, 255, 0.8));
+}
+
+@keyframes flickerAnimation {
+  0% {opacity:0.1;}
+  2% {opacity:1;}
+  8% {opacity:0.1;}
+  9% {opacity:1;}
+  12% {opacity:0.1;}
+  20% {opacity:1;}
+  25% {opacity:0.3;}
+  30% {opacity:1;}
+  70% {opacity:0;}
+  72% {opacity:0.2;}
+  77% {opacity:.7;}
+  100% {opacity:.9;}
+}
+@-o-keyframes flickerAnimation{
+  0% {opacity:0.1;}
+  2% {opacity:1;}
+  8% {opacity:0.1;}
+  9% {opacity:1;}
+  12% {opacity:0.1;}
+  20% {opacity:1;}
+  25% {opacity:0.3;}
+  30% {opacity:1;}
+  70% {opacity:0;}
+  72% {opacity:0.2;}
+  77% {opacity:.7;}
+  100% {opacity:.9;}
+}
+@-moz-keyframes flickerAnimation{
+  0% {opacity:0.1;}
+  2% {opacity:1;}
+  8% {opacity:0.1;}
+  9% {opacity:1;}
+  12% {opacity:0.1;}
+  20% {opacity:1;}
+  25% {opacity:0.3;}
+  30% {opacity:1;}
+  70% {opacity:0;}
+  72% {opacity:0.2;}
+  77% {opacity:.7;}
+  100% {opacity:.9;}
+}
+@-webkit-keyframes flickerAnimation{
+  0% {opacity:0.1;}
+  2% {opacity:1;}
+  8% {opacity:0.1;}
+  9% {opacity:1;}
+  12% {opacity:0.1;}
+  20% {opacity:1;}
+  25% {opacity:0.3;}
+  30% {opacity:1;}
+  70% {opacity:0;}
+  72% {opacity:0.2;}
+  77% {opacity:.7;}
+  100% {opacity:.9;}
+}
+
+g #y2 {
+  -webkit-animation: flickerAnimation 7s infinite;
+  -moz-animation: flickerAnimation 7s infinite;
+  -o-animation: flickerAnimation 7s infinite;
+  animation: flickerAnimation 7s infinite;
+}
+
+.neon {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 100px rgba(0, 255, 255, 0.8);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 100px rgba(0, 255, 255, 0.8);
+}
