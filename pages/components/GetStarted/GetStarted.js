@@ -1,4 +1,4 @@
-// import getstarted css file
+import Link from 'next/link';
 import styles from './GetStarted.module.css';
 import Logo from '../home/logo';
 
@@ -14,8 +14,8 @@ export default function GetStarted(){
         Learn to Code Python Language By Playing !
         </p>
         <div className={styles.buttons}>
-            <a href='#'>GetStarted</a>
-            <a href='#'>Learn More</a>
+        <Link href="/MainPage"><a>GetStarted</a></Link>
+            <Link href="#"><a>Learn More</a></Link>
         </div>
     </div>
     
