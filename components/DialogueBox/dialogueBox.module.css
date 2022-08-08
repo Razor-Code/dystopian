@@ -1,0 +1,74 @@
+.dialogueBox {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 100px);
+  background-color: #eee;
+  height: 125px;
+  margin: 25px;
+  padding: 25px 50px;
+  color: #222;
+  font-size: 1.2rem;
+  word-spacing: 3px;
+}
+
+.dialogueBox::after {
+  content: ' ';
+  min-height: 25.4px;
+  min-width: max(20%, 100px);
+  position: absolute;
+  top: -25px;
+  right: 0;
+  background-color: #eee; /* should be same as bg color */
+  clip-path: polygon(20% 0%, 90% 0%, 100% 100%, 0% 100%);
+}
+
+@-webkit-keyframes arrow_anim {
+  from { bottom: 20px; }
+  to { bottom: 30px; }
+}
+
+@-moz-keyframes arrow_anim {
+  from { bottom: 20px; }
+  to { bottom: 30px; }
+}
+
+@-ms-keyframes arrow_anim {
+  from { bottom: 20px; }
+  to { bottom: 30px; }
+}
+
+@-o-keyframes arrow_anim {
+  from { bottom: 20px; }
+  to { bottom: 30px; }
+}
+
+@keyframes arrow_anim {
+  from { bottom: 20px; }
+  to { bottom: 30px; }
+}
+
+.dialogueBoxArrow {
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid red;
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  -webkit-animation: arrow_anim .5s steps(3) infinite;
+  -moz-animation: arrow_anim .5s steps(3) infinite;
+  -ms-animation: arrow_anim .5s steps(3) infinite;
+  -o-animation: arrow_anim .5s steps(3) infinite;
+  animation: arrow_anim .5s steps(3) infinite;
+}
+
+.speakerImage {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -120px;
+  left: 7px;
+  outline: 7px solid #00cafe;
+}
