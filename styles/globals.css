@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -122,4 +124,30 @@ g #y2 {
 
 .neon-text {
   text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 100px rgba(0, 255, 255, 0.8);
+}
+
+.glass-container {
+  padding: min(10%, 70px);
+  background-color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 100px rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 10px;
+}
+
+.gallery img {
+  clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+}
+
+.desc-text {
+  max-width: 400px;
+  text-align: center;
 }
