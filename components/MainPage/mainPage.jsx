@@ -24,13 +24,13 @@ return(
    
     <ul className={style.list}>
         <h2 className={style.head} ><Logo /></h2>
-        <li className={style.list1}><a href='#'>Documentation</a></li>
+        <li className={style.list1}><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1061/1061427.png"></img><a href='#'>Documentation</a></li>
     </ul>
     <ul className={style.list2}>
-        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/535/535245.png"></img><a id="Login" onClick= {() => isOpenDispatch(
+        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png"></img><a id="Login" onClick= {() => isOpenDispatch(
             {component: 'login'}
         )}>Login</a></li> 
-        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/456/456212.png"></img><a onClick = {() => isOpenDispatch( 
+        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"></img><a onClick = {() => isOpenDispatch( 
             {component: 'register'}
          )}>Register</a></li>
     </ul>
