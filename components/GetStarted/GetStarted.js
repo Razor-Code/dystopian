@@ -18,6 +18,5 @@ export default function GetStarted(){
             <Link href="#"><a>Learn More</a></Link>
         </div>
     </div>
-    
     </div>
 )}

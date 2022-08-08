@@ -1,6 +1,6 @@
 export default function Logo() {
   return (
-    <svg className="logo" width="540" height="143" viewBox="-150 0 840 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="logo" width="540" height="143" viewBox="0 0 540 143" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="dystopyan">
     <g id="n">
     <path id="Vector 9" d="M458 135L494 50L525 120L536 35L512 25" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>

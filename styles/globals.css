@@ -1,5 +1,3 @@
-
-
 html,
 body {
   padding: 0;
@@ -39,12 +37,13 @@ main {
 }
 
 .logo {
-  width: 90%;
-  max-width: 1000px;
+  overflow: visible;
+  max-width: 400px;
+  width: 100%;
   height: 100%;
   color: white;
   animation: logo 2s ease-in-out infinite;
-  
+  margin-bottom: 20px;
 }
 
 .logo path, .logo circle {
