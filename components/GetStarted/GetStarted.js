@@ -15,7 +15,7 @@ export default function GetStarted(){
         </p>
         <div className={styles.buttons}>
         <Link href="/mainpage"><a>GetStarted</a></Link>
-            <Link href="#"><a>Learn More</a></Link>
+            <Link href="/learnmore"><a>Learn More</a></Link>
         </div>
     </div>
     </div>
