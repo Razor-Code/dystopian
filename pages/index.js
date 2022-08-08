@@ -1,8 +1,6 @@
 import Head from 'next/head';
 
-import Logo from './components/home/logo';
-import GetStarted from './components/GetStarted/GetStarted';
-import MainPage from './components/MainPage/mainPage';
+import GetStarted from '../components/GetStarted/GetStarted';
 
 export default function Home() {
   return (
@@ -14,8 +12,7 @@ export default function Home() {
       </Head>
 
       <main >
-        
-        <GetStarted/>
+      <GetStarted/>
       </main>
     </div>
   )
