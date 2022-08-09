@@ -2,24 +2,26 @@
   position: absolute;
   bottom: 0;
   width: calc(100% - 100px);
-  background-color: #eee;
-  height: 125px;
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 125px;
   margin: 25px;
   padding: 25px 50px;
-  color: #222;
   font-size: 1.2rem;
   word-spacing: 3px;
+  /* The clip path makes cut corner effect on the dialogue box */
+  /* The first value must be -200% so that the speaker image doesnt get cut off */
+  clip-path: polygon(0 -200%, calc(100% - 35px) 0%, 100% 35px, 100% 100%, 35px 100%, 0% calc(100% - 35px));
 }
 
 .dialogueBox::after {
   content: ' ';
-  min-height: 25.4px;
-  min-width: max(20%, 100px);
+  min-height: 30.4px;
+  min-width: max(20%, 200px);
   position: absolute;
-  top: -25px;
-  right: 0;
-  background-color: #eee; /* should be same as bg color */
-  clip-path: polygon(20% 0%, 90% 0%, 100% 100%, 0% 100%);
+  top: -30px;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.2); /* should be same as bg color */
+  clip-path: polygon(25px 0%, calc(100% - 25px) 0%, 100% 100%, 0% 100%);
 }
 
 @-webkit-keyframes arrow_anim {
@@ -68,7 +70,17 @@
   width: 100px;
   height: 100px;
   position: absolute;
-  top: -120px;
-  left: 7px;
+  top: -145px;
+  left: 32px; /* Clip ends @ 25px + 7px for outline */
   outline: 7px solid #00cafe;
+}
+
+p.speakerName {
+  position: absolute;
+  top: -40px;
+  color: #00cafe;
+  font-weight: 600;
+  /* font spacing of 1.12 */
+  letter-spacing: 1.12px;
+  z-index: 1;
 }
