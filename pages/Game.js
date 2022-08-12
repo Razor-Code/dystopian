@@ -1,10 +1,10 @@
 import React from 'react'
 import Index from '../components/src'
 
-const Game = () => {
+const game = () => {
   return (
     <div><Index /></div>
   )
 }
 
-export default Game
+export default game;
