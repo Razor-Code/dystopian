@@ -30,11 +30,10 @@ a {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("../public/bgwall.jpg");
-  background-size: cover;
+  background-image: url("../public/ehuerj.png");
+  background-size: contain;
   background-repeat:  no-repeat;
 }
 
