@@ -22,18 +22,15 @@ const Index = () => {
           this.position = position;
         }
         draw(){
-          console.log(this.position.x);
-          ctx.drawImage(this.bg , 0 , -320, 4990, 1605);
+          ctx.drawImage(this.bg , this.position.position , -320, 4990, 1605);
         }
       }
+
 
   
 
       const background = new sprite({
-        position: {
-          x: 0, 
-          y: -320
-        },
+        position: 5,
         image: bg
       });
       
@@ -60,7 +57,16 @@ const Index = () => {
         
         
         if (keys.d.pressed){
-          background.position.x = background.position.x - 1;
+          background.position.position = background.position.position - 5;
+        }
+
+        if (keys.a.pressed) {
+          if(background.position.position < 0){
+             background.position.position = background.position.position + 5;
+          }
+          else{
+            background.position.position = 0;
+          }
         }
         }
         animate();
@@ -101,6 +107,7 @@ const Index = () => {
     
       }
   }, [canvasRef]);
+
 
   return (
     <div>
