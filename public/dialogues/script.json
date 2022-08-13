@@ -1,0 +1,17 @@
+// json file with basic data
+{
+    "0": [
+        {
+            "name": "John",
+            "img": "/creators/pranshu.png",
+            "dialogues": [
+                "Hello There...."
+            ]
+        },
+        {
+            "name": "Bill",
+            "age": 40,
+            "city": "New Jersey"
+        }
+    ]
+}
