@@ -1,0 +1,231 @@
+.body{
+    height: 100vh;
+    width: 100%;
+    background: url("/cyanblackcity.png");
+    background-size: contain;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.docs h1{
+    color: #21ebff;
+}
+
+.docs h2{
+    color: #21ebff;
+}
+
+.docs h3{
+    color: #21ebff;
+}
+
+.docs span{
+    color: #21ebff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.docs p{
+    font-size: 20px;
+}
+
+.docs{
+    position: relative;
+    float: left;
+    
+    background-size: contain;
+    max-width: 45%;
+    height: 90vh ;
+    padding: 15px;
+    background: rgba(0,0,0,.7);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    overflow: hidden;
+    overflow-y: scroll;
+    top: 85px;
+    bottom: 80px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 50px;
+}
+
+
+.container{
+    display: flex;
+}
+
+.list{
+    font-size: 20px; 
+}
+
+.docs::-webkit-scrollbar{
+    display: none;
+}
+
+
+.compilerCont{
+    position: relative;
+    float: right;
+    width: 55%;
+    top: 86px;
+    height: 90vh;
+    bottom: 80px;
+}
+
+.compiler{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: rgb(94, 94, 94);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    padding-left: 30px;   
+}
+
+.footer ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+    padding-right: 50px;
+}
+
+.footer h2{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.list{
+    font-size: 20px; 
+}
+
+.footer ul li{
+    position: relative;
+    list-style: none;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    letter-spacing: 0.05px;  
+}
+
+.img{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.img:hover{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    transition: 0.6s;
+}
+
+
+
+
+
+
+
+.Nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 30px;
+    background: rgba(255,255,255,.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    z-index: 1;
+}
+
+.head{
+    position: relative;
+    width: 400px;
+    font-weight: 700;
+    color: #21ebff;
+    text-decoration: none;
+    font-size: 2em;
+    height: 75px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    transition: 0.6s;
+    
+}
+
+.list1{
+    padding-left: 0px;
+    font-size: 1.3em;
+    border: #000;
+    border-radius: 15px;
+    transition: 0s;
+}
+
+.Nav ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+}
+
+.list2{
+    padding-right: 200px;
+}
+
+.Nav ul li{
+    position: relative;
+    list-style: none;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.Nav ul li:hover{
+    font-size: 1.5em;
+    
+}
+
+.img1{
+    height: 32px;
+    width: 32px;
+}
+
+.Nav ul li a{
+    position: relative;
+    margin: 0 8px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.6s;
+}

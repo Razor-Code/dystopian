@@ -1,15 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+
+
+.wrapper {
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  position: absolute;
+  width: 100vw;
+  top: 430px;
+}
+
+/* //#6225E6; */
+
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    color: white;
+    background: #21ebff;    
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+  
+}
+
+.cta:focus {
+   outline: none; 
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #FBC638;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover  span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+.cta span {
+    transform: skewX(15deg) 
+  }
+
+.cta span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+    50% {
+        fill: #FBC638;
+    }
+    100% {
+        fill: white;
+    }
+}
 
 .body{
-
-    background: url("/bgwall.jpg");
-    min-height: 200vh;
+    background: url("/Gif1.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    background-position: center;
 }
 
 .Nav{
-    position: fixed;
-    top: 0;
+    position: relative;
+    top: -20px;
     left: 0;
     width: 100%;
     height: 86px;
@@ -17,8 +122,9 @@
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
+    filter: opacity(109%);
     padding: 10px 30px;
-    background: rgba(255,255,255,.2);
+    background: rgba(0,0,0,.7);
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
@@ -29,12 +135,12 @@
     color: #21ebff;
     text-decoration: none;
     font-size: 2em;
+    height: 75px;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     letter-spacing: 2px;
     transition: 0.6s;
-    
 }
 
 .list1{
@@ -69,7 +175,6 @@
 
 .Nav ul li:hover{
     font-size: 1.5em;
-    
 }
 
 .img1{
@@ -92,7 +197,7 @@
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    position: absolute;
+    position: relative;
     border-bottom: 20px solid #21ebff;
     right: 440px;
     top: 64px;
