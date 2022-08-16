@@ -44,8 +44,8 @@ const Index = () => {
             y: 1
           }
 
-          this.width = 71;
-          this.height = 67;
+          this.width = 71 * 1.25;
+          this.height = 67 * 1.25;
 
           this.frames = 0;
           this.sprites = {
