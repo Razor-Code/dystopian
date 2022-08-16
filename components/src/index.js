@@ -270,13 +270,15 @@ const Index = () => {
       addEventListener('keydown', function(e){
         switch(e.key){
           case 'w':
-            player.velocity.y -= 20;
-            if (lastKey === 'right') {
-              player.currentSprite = player.sprites.jump.right
-            } else {
-              player.currentSprite = player.sprites.jump.left
+            if (!e.repeat) {
+              player.velocity.y -= 20;
+              if (lastKey === 'right') {
+                player.currentSprite = player.sprites.jump.right
+              } else {
+                player.currentSprite = player.sprites.jump.left
+              }
+              player.numFrames = player.sprites.jump.numFrames;
             }
-            player.numFrames = player.sprites.jump.numFrames;
             break;
           case 'a':
             keys.left.pressed = true;
