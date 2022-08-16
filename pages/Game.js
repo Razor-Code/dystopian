@@ -3,7 +3,7 @@ import Index from '../components/src'
 
 const Game = () => {
   return (
-    <div><Index /></div>
+    <><Index /></>
   )
 }
 
