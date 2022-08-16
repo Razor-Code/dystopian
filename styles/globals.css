@@ -33,7 +33,7 @@ main {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  background-image: url("../public/ehuerj.png");
+  background: #000;
   background-size: contain;
   background-repeat:  no-repeat;
 }

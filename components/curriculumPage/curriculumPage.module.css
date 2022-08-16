@@ -1,178 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .body{
+    position: absolute;
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-    background: url("/cyanblackcity.png");
+    color: #fff;
+    background: url('/bgwall.jpg');
     background-size: contain;
-    
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+}
+
+.Container{
+    position : relative;
+    width: 100%;
+    height: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    
+    top: 40px;
+    margin-top: 20px;
 }
 
-.docs h1{
-    color: #21ebff;
+.LogIn{
+    border: #000 solid 2px;
+    border-radius: 15px;
+    font-size: 1em;
+    font-family: 'ubut', sans-serif;
+    padding: 10px;
+    margin-left: -10px;
 }
 
-.docs h2{
-    color: #21ebff;
+.place{
+    color: #21ebff;  
 }
 
-.docs h3{
-    color: #21ebff;
+.heading{
+    height: 80px;
+    margin-top: 0px;
+    width: 80%;
+    font-family: VT323, monospace;
+    letter-spacing: 2px;
+    font-size: 65px;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.7);
+    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.5);
+    margin: 5px;
+    margin-bottom: 15px;
 }
 
-.docs span{
-    color: #21ebff;
-    font-size: 20px;
-    font-weight: 700;
+.box{
+    width: 80%;
+    background: rgba(0,0,0,.7);
+    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.5);
+    margin-bottom: 50px;
+    padding: 10px;
 }
 
-.docs p{
-    font-size: 20px;
-}
 
 .docs{
-    position: relative;
-    float: left;
-    
-    background-size: contain;
-    max-width: 45%;
-    height: 90vh ;
-    padding: 15px;
-    background: rgba(0,0,0,.7);
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    overflow: hidden;
-    overflow-y: scroll;
-    top: 97px;
-    bottom: 80px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 50px;
-}
-
-
-.Documentation{
     border: #000 solid 2px;
     border-radius: 15px;
     font-size: 1.5em;
     font-family: 'ubut', sans-serif;
     padding: 10px;
-    margin-left: -100px;
+    margin-left: -10px;
 }
 
-.Documentation:hover{
-    font-size: 1.6em;
+.docs:hover{
+    font-size: 1.7em;
     transition: 0.6s;
     border: #000 solid 3px;
     color: #fff;
 }
 
-.container{
-    display: flex;
-}
-
-.listitem{
-    font-family: 'VT323', monospace;
-    font-size: 40px;
-}
-
 .list{
-    font-size: 20px; 
-}
-
-.docs::-webkit-scrollbar{
-    display: none;
-}
-
-
-.compilerCont{
-    position: relative;
-    float: right;
-    width: 55%;
-    top: 97px;
-    height: 90vh;
-    bottom: 80px;
-}
-
-.compiler{
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
-
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 70px;
-    background: rgb(94, 94, 94);
+    margin-top: 20px;
+    text-decoration: none;
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    padding-left: 30px;   
-}
-
-.footer ul{
-    position: relative;
-    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     font-family: Ubuntu, sans-serif;
-    padding-right: 50px;
-}
-
-.footer h2{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-.list{
-    font-size: 20px; 
-}
-
-.footer ul li{
-    position: relative;
-    list-style: none;
     font-size: 1.3em;
+    border: #000;
+    border-radius: 15px;
+    transition: 0s;
+    
+
+}
+
+.card{
+    max-height: 400px;
+    width: 300px;
     display: flex;
+    flex-direction: column;
+    background: #fff;
+    color: #000;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    padding-left: 10px;
-    font-weight: bold;
-    letter-spacing: 0.05px;  
+
 }
 
-.img{
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-    margin-left: 10px;
+.card h2{
+    font-family: VT323, monospace;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    text-align: center;
+    
 }
 
-.img:hover{
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    transition: 0.6s;
+.card h2 h3{
+
+    font-size: 0.8em;
 }
 
+.button{
+    height: 38px;
+    width: 100px;
+    margin-top: 20px;
+    background: #21ebff;
+    font-family: VT323, monospace;
+    font-size: 1.4em;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    margin-bottom: 10px;
+}
 
-
-
-
-
-/* rgba(255,255,255,.2); */
 
 .Nav{
     position: fixed;
@@ -188,6 +150,7 @@
     background: linear-gradient(90deg ,#171941, #2dfbfd);
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     z-index: 1;
+    
 }
 
 .head{
@@ -203,6 +166,7 @@
     align-items: center;
     letter-spacing: 2px;
     transition: 0.6s;
+    margin-bottom: 20px;
 
    
 }
