@@ -20,8 +20,8 @@ import spriteJumpLeft from '../../public/graphics/spriteJumpLeft.png';
 import spriteRunRight from '../../public/graphics/spriteRunRight.png';
 import spriteRunLeft from '../../public/graphics/spriteRunLeft.png';
 
-import React, {useEffect, useRef} from 'react';
-import styles from "./town.module.css";
+// import React, {useEffect, useRef} from 'react';
+// import styles from "./town.module.css";
 
 
 const Index = () => {
