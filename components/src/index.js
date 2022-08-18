@@ -1,3 +1,4 @@
+
 import React, {useEffect, useRef, useState} from 'react';
 import styles from './index.module.css';
 
@@ -18,6 +19,10 @@ import spriteJumpRight from '../../public/graphics/spriteJumpRight.png';
 import spriteJumpLeft from '../../public/graphics/spriteJumpLeft.png';
 import spriteRunRight from '../../public/graphics/spriteRunRight.png';
 import spriteRunLeft from '../../public/graphics/spriteRunLeft.png';
+
+import React, {useEffect, useRef} from 'react';
+import styles from "./town.module.css";
+
 
 const Index = () => {
   const canvasRef = useRef();
@@ -194,7 +199,21 @@ const Index = () => {
           player.velocity.x = 0;
         }
 
+
         // if (player.velocity.y !== 0) return;
+
+        if (keys.a.pressed) {
+          if(background.position.position < 0){
+             background.position.position = background.position.position + 5;
+          }
+          else{
+            background.position.position = 0;
+          }
+        }
+
+        }
+        animate();
+
 
         if (keys.right.pressed) {
           scrollOffset += 1;
@@ -310,14 +329,20 @@ const Index = () => {
         }
       });
     
-    }
+    
   } , [canvasRef]);
   
 
 
   return (
+
     <div className={styles.gameBox}>
     <canvas id="game" width="1920"  height="961" ref={canvasRef}></canvas>
+
+    <div>
+    <canvas id="game"  width="1920"  height="961" ref={canvasRef}></canvas>
+
+    </div>
     </div>
   )
 }

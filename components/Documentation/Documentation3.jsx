@@ -4,9 +4,17 @@ import Link from 'next/link';
 export default function Documentation3() {
     return(
         <div className={styles.body}>
+        <div className={styles.Nav}>
+        <div> <ul className={styles.list}>
+           <li className={styles.listitem}> Name : Dystopian  |</li>
+           <li className={styles.listitem}> Stage : I</li>
+         </ul> </div>
+         <div>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div></div>
+       </div>
+  
         <div className={styles.container}>
         <div className={styles.docs}>
-        
+    
         </div>
         <div className={styles.compilerCont}><iframe className={styles.compiler} src="https://trinket.io/embed/python/9f5f0b7d5e" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe></div>
         </div>

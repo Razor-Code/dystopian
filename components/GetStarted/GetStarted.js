@@ -14,7 +14,7 @@ export default function GetStarted(){
         Learn to Code Python Language By Playing !
         </p>
         <div className={styles.buttons}>
-        <Link href="/mainpage"><a>GetStarted</a></Link>
+        <Link href="/Vedio"><a>GetStarted</a></Link>
             <Link href="/learnmore"><a>Learn More</a></Link>
         </div>
     </div>
