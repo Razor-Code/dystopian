@@ -19,6 +19,8 @@ export default class Player extends GameObject {
     this.running = false;
     this.gravityTick = 0;
 
+    this.health = 100;
+
     this.ledgeHang = false;
 
     this.doubleJumped = false;
@@ -246,8 +248,22 @@ export default class Player extends GameObject {
 
   attack() {
     this.game.camera.shake(0.15, 0.8);
-
     this.setAnimation("attack1");
+  }
+
+  attack2() {
+    this.game.camera.shake(0.15, 0.8);
+    this.setAnimation("attack2");
+  }
+
+  attack3() {
+    this.game.camera.shake(0.15, 0.8);
+    this.setAnimation("attack3");
+  }
+
+  attack4() {
+    this.game.camera.shake(0.15, 0.8);
+    this.setAnimation("attack4");
   }
 
   groundSlam() {

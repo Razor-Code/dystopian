@@ -99,10 +99,6 @@ export default class Controller {
         }
       }
 
-      if (this.game.inputManager.isKeyPressed("f")) {
-        this.controlling.knockback();
-      }
-
       if (this.game.inputManager.isKeyPressed("g")) {
         this.game.showInfo = !this.game.showInfo;
       }

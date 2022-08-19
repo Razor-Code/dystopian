@@ -6,11 +6,6 @@ import SpriteSheet from "./SpriteSheet";
 
 function App() {
   var canvasRef = useRef();
-
-  /**
-   * Show menu
-   */
-  var [menu, setMenu] = useState(false);
   var gameRef = useRef();
 
   useEffect(() => {
@@ -66,9 +61,15 @@ function App() {
       ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      if (game.active) {
+      if (game.active && game.player.health > 0) {
         game.updateGame(delta);
+      } else if(game.player.health <= 0) {
+        // Game Restart when Player health drops to 0
+        // NOT WORKING
+        game = new Game(canvas, ctx, ssm);
+        game.start();
       }
+
       game.renderGame(delta);
 
       active && requestAnimationFrame(update);
@@ -85,7 +86,6 @@ function App() {
 
       setTimeout(() => {
         game.start();
-        // setMenu(true);
       }, 100);
     };
 
@@ -102,22 +102,7 @@ function App() {
   }, []);
 
   return (
-    <div className={!menu ? "hide-cursor" : ""}>
-      <div className={"main-menu" + (menu ? " main-menu-show" : "")}>
-        <h1>Platformer</h1>
-        <p>by: MichaelXF</p>
-
-        <button
-          className='main-btn'
-          onClick={() => {
-            // Start game
-            setMenu(false);
-          }}
-        >
-          Play
-        </button>
-      </div>
-
+    <>
       <canvas ref={canvasRef} />
 
       <div className='controls'>
@@ -126,7 +111,7 @@ function App() {
         <kbd>S</kbd>
         <kbd>D</kbd>
       </div>
-    </div>
+    </>
   );
 }
 

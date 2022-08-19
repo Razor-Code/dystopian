@@ -166,57 +166,16 @@ g #y2 {
   left:calc(50% - 15px);
   top:30px;
   -webkit-transform:translate(-100%);
-  transform:translate(-100%)
+  transform:translate(-100%);
+  opacity: 1;
+  display: block;
 }
 .scoreboard-p2{
   position:absolute;
   left:calc(50% + 15px);
-  top:30px
-}
-.main-menu{
-  position:fixed;
-  top:50%;
-  left:50%;
-  z-index:10;
-  text-align:center;
-  opacity:0;
-  -webkit-transform:translate(-50%,-50%) translateY(-100px);
-  transform:translate(-50%,-50%) translateY(-100px);
-  transition:opacity .8s ease,-webkit-transform 1.6s ease;
-  transition:opacity .8s ease,transform 1.6s ease;
-  transition:opacity .8s ease,transform 1.6s ease,-webkit-transform 1.6s ease
-}
-.main-menu-show{
-  opacity:1;
-  -webkit-transform:translate(-50%,-50%);
-  transform:translate(-50%,-50%)
-}
-.main-menu>h1{
-  margin:0;
-  line-height:1;
-  font-size:60px
-}
-.main-menu>p{
-  line-height:1;
-  margin-bottom:50px
-}
-.main-btn{
-  display:block;
-  padding:20px;
-  border:2px solid transparent;
-  outline:none;
-  background:#171718;
-  color:#fff;
-  border-radius:6px;
-  width:100%;
-  min-width:250px;
-  font-size:18px;
-  margin-bottom:10px;
-  cursor:pointer;
-  transition:background-color .3s ease
-}
-.main-btn:hover{
-  background:#3b3c3d
+  top:30px;
+  opacity: 1;
+  display: block;
 }
 .controls{
   position:fixed;
@@ -238,7 +197,7 @@ kbd{
   margin:0 2px
 }
 .hide-cursor,.hide-cursor *{
-  /* cursor:none!important; */
+  cursor:none!important;
   -webkit-user-select:none!important;
   -ms-user-select:none!important;
   user-select:none!important
