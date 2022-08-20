@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../components/learnmore/learnmore.module.css';
+import styles from '../components/learnMore/learnMore.module.css';
 
 export default function LearnMore() {
   return (

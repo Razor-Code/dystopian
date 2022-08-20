@@ -1,4 +1,4 @@
-.main{
+.main {
     height: 100vh;
     width: 100vw;
     background: #fff;
@@ -6,7 +6,7 @@
 }
 
 
-.Nav{
+.Nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,13 +17,13 @@
     align-items: center;
     transition: 0.6s;
     padding: 10px 60px;
-    background: linear-gradient(90deg ,#171941, #2dfbfd);
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    z-index: 1;    
+    background: linear-gradient(90deg, #171941, #2dfbfd);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    z-index: 1;
 }
 
 
-.head{
+.head {
     position: relative;
     width: 400px;
     font-weight: 700;
@@ -36,17 +36,17 @@
     align-items: center;
     letter-spacing: 2px;
     transition: 0.6s;
-    margin-bottom: 20px;   
+    margin-bottom: 20px;
 }
 
 
-.xpName img{
+.xpName img {
     width: 32px;
     height: 32px;
     margin-left: 2;
 }
 
-.list1{
+.list1 {
     padding-left: 0px;
     font-size: 1.3em;
     border: #000;
@@ -55,7 +55,7 @@
 }
 
 
-.Nav ul{
+.Nav ul {
     position: relative;
     display: flex;
     justify-content: center;
@@ -63,11 +63,11 @@
     font-family: Ubuntu, sans-serif;
 }
 
-.list2{
+.list2 {
     padding-right: 200px;
 }
 
-.Nav ul li{
+.Nav ul li {
     position: relative;
     list-style: none;
     font-size: 2em;
@@ -79,21 +79,21 @@
     padding-left: 10px;
 }
 
-.body1{
+.body1 {
     margin-top: 95px;
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.sidebar{
+.sidebar {
     background: #fff;
     height: 100%;
     width: 5%;
-    border-right: 1px solid grey;   
+    border-right: 1px solid grey;
 }
 
-.sidebar1{
+.sidebar1 {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -101,28 +101,28 @@
     padding-top: 30px;
 }
 
-.sidebar1 img{
+.sidebar1 img {
     width: 40px;
     height: 40px;
     margin: 15px;
 }
 
-.sidebar2{
+.sidebar2 {
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
     padding-top: 500px;
-    
+
 }
 
-.sidebar2 img{
+.sidebar2 img {
     width: 40px;
     height: 40px;
     margin: 15px;
 }
 
-.body{
+.body {
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
     width: 95%;
     padding: 30px;
@@ -132,7 +132,7 @@
     justify-content: center;
 }
 
-.createcontainer{
+.createcontainer {
     max-width: 1000px;
     width: 100%;
     background: #fff;
@@ -142,13 +142,13 @@
 
 }
 
-.title{
-    font-size :25px;
+.title {
+    font-size: 25px;
     color: #000;
     font-weight: 500;
 }
 
-.title::before{
+.title::before {
     content: '';
     position: absolute;
     left: 0;
@@ -158,24 +158,24 @@
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-.createcontainer form .details1{
+.createcontainer form .details1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 
-form .details1 .inputBox{
+form .details1 .inputBox {
     margin: 20px 0 12px 0;
     width: 450px;
 }
 
-.inputBox .details{
+.inputBox .details {
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.inputBox input{
+.inputBox input {
     height: 45px;
     width: 100%;
     outline: none;
@@ -187,20 +187,21 @@ form .details1 .inputBox{
     margin-top: 10px;
     border-bottom-width: 2px;
     background: #fff;
+    color: #000;
     transition: all 0.3s ease;
 }
 
 .inputBox input:focus,
-.inputBox input:valid{
+.inputBox input:valid {
     border-color: #9b59b6;
 }
 
-.button{
+.button {
     height: 45px;
     margin: 45px 0;
 }
 
-.button input{
+.button button {
     height: 100%;
     width: 100%;
     outline: none;
@@ -213,7 +214,7 @@ form .details1 .inputBox{
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
-.Login_Signup{
+.Login_Signup {
     color: #000;
     width: 500px;
     height: 50px;
@@ -224,7 +225,7 @@ form .details1 .inputBox{
     margin-top: -50px;
 }
 
-.Login{
+.Login {
     height: 100%;
     width: 50%;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
@@ -237,13 +238,13 @@ form .details1 .inputBox{
     justify-content: center;
 }
 
-.Login:hover{
+.Login:hover {
     font-size: 22px;
     font-weight: 700px;
     transition: 0.6s;
 }
 
-.Signup{
+.Signup {
     height: 100%;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -255,17 +256,18 @@ form .details1 .inputBox{
     font-weight: 500px;
     justify-content: center;
     margin-left: 5px;
-    background:linear-gradient(135deg, #71b7e6, #9b59b6);;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    ;
 }
 
-.Signup:hover{
+.Signup:hover {
     font-size: 22px;
     font-weight: 700px;
     transition: 0.6s;
 }
 
 
-.Logincontainer{
+.Logincontainer {
     max-width: 500px;
     width: 100%;
     background: #fff;

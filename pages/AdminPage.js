@@ -1,9 +1,9 @@
 import React from 'react'
-import AdimPage from "../components/AdimPage/AdimPage";
+import AdimPage from "../components/AdminPage/AdminPage";
 
 const Adminpage = () => {
   return (
-    <div><AdimPage/></div>
+    <div><AdimPage /></div>
   )
 }
 

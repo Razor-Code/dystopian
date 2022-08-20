@@ -1,36 +1,44 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import Curriculumpage from '../components/curriculumPage/Curriculumpage';
-import GetStarted from '../components/GetStarted/GetStarted';
 import MainPage from '../components/MainPage/mainPage';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import app from '../Firebase';
-import AdimPage from '../components/AdimPage/AdimPage';
+import app, { db } from '../Firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { useRouter } from 'next/router';
 
 
-export default function mainpage (){
+export default function mainpage() {
 
-const [user, setUser] = useState('')
-const [executer, setExecuter] = useState(false)
+  const [user, setUser] = useState('')
+  const [executed, setExecuted] = useState(false)
+  const [role, setRole] = useState('')
 
-useEffect(() => {
-  const auth = getAuth(app)
-  onAuthStateChanged(auth, user => {
-    setExecuter(true)
-    if (user) {
-       setUser(user)
-    } 
-  }
-)}, [])
+  const router = useRouter()
 
-return (
+  useEffect(() => {
+    const auth = getAuth(app)
+    onAuthStateChanged(auth, async user => {
+      if (user) {
+        let result = await getDoc(doc(db, 'users', user.uid))
+
+        console.log(result.data())
+
+        if (result.data().role == "admin") {
+          router.push('/AdminPage')
+        } else {
+          router.push('/Curriculumpage')
+        }
+      }
+      setExecuted(true)
+    }
+    )
+  }, [])
+
+  return (
     <div>
-    {
-      (executer && user) && <Curriculumpage/>
-    }
-    {
-      (executer && !user) && <MainPage/>
-    }
+      {
+        executed && <MainPage />
+      }
     </div>
   )
 }
