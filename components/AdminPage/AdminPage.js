@@ -153,8 +153,6 @@ const AdimPage = () => {
               <div className={styles.GraphHead}>
                 <h2>Student's xp progress :</h2>
                 <span><img src="https://cdn-icons-png.flaticon.com/128/625/625946.png"></img>This Week</span>
-
-
               </div>
             </div>
           </div>
