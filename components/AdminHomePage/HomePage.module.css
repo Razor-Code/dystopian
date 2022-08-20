@@ -1,0 +1,275 @@
+.main{
+    height: 100vh;
+    width: 100vw;
+    background: #fff;
+
+}
+
+
+.Nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 60px;
+    background: linear-gradient(90deg ,#171941, #2dfbfd);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    z-index: 1;    
+}
+
+
+.head{
+    position: relative;
+    width: 400px;
+    font-weight: 700;
+    color: #21ebff;
+    text-decoration: none;
+    font-size: 2em;
+    height: 75px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    transition: 0.6s;
+    margin-bottom: 20px;   
+}
+
+
+.xpName img{
+    width: 32px;
+    height: 32px;
+    margin-left: 2;
+}
+
+.list1{
+    padding-left: 0px;
+    font-size: 1.3em;
+    border: #000;
+    border-radius: 15px;
+    transition: 0s;
+}
+
+
+.Nav ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+}
+
+.list2{
+    padding-right: 200px;
+}
+
+.Nav ul li{
+    position: relative;
+    list-style: none;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    font-family: vt323, monospace;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 10px;
+}
+
+.body1{
+    margin-top: 95px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar{
+    background: #fff;
+    height: 100%;
+    width: 5%;
+    border-right: 1px solid grey;   
+}
+
+.sidebar1{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.sidebar1 img{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.sidebar2{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 500px;
+    
+}
+
+.sidebar2 img{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.body{
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    width: 95%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.createcontainer{
+    max-width: 1000px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    color: #000;
+
+}
+
+.title{
+    font-size :25px;
+    color: #000;
+    font-weight: 500;
+}
+
+.title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.createcontainer form .details1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+form .details1 .inputBox{
+    margin: 20px 0 12px 0;
+    width: 450px;
+}
+
+.inputBox .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.inputBox input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    height: 60px;
+    margin-top: 10px;
+    border-bottom-width: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.inputBox input:focus,
+.inputBox input:valid{
+    border-color: #9b59b6;
+}
+
+.button{
+    height: 45px;
+    margin: 45px 0;
+}
+
+.button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 15px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.Login_Signup{
+    color: #000;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    border: #fff solid 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+
+.Login{
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500px;
+    justify-content: center;
+}
+
+.Login:hover{
+    font-size: 22px;
+    font-weight: 700px;
+    transition: 0.6s;
+}
+
+.Signup{
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 50%;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500px;
+    justify-content: center;
+    margin-left: 5px;
+    background:linear-gradient(135deg, #71b7e6, #9b59b6);;
+}
+
+.Signup:hover{
+    font-size: 22px;
+    font-weight: 700px;
+    transition: 0.6s;
+}
+
+
+.Logincontainer{
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    color: #000;
+}

@@ -5,7 +5,7 @@ import app from '../../Firebase';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
+import { motion } from 'framer-motion';
 
  
 function reducer(state, action) {
@@ -18,6 +18,18 @@ function reducer(state, action) {
             return state;
     }
 }
+
+
+const scaleVariants = {
+  whileInView: {
+    scale: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      ease: 'easeInOut',
+    },
+  },
+};
 
 export default function MainPage() {
 
@@ -69,11 +81,12 @@ export default function MainPage() {
 
 
 
-  const [isOpen, isOpenDispatch] = useReducer(reducer, {register: false, login: false});
+const [isOpen, isOpenDispatch] = useReducer(reducer, {register: false, login: false});
 const auth = getAuth(app);
 const [username, setUsername] = useState('');
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState('');
+const [role, setRole] = useState('');
 
 const signIn = () => {
 signInWithEmailAndPassword(auth, email, password)
@@ -101,10 +114,12 @@ const signUp = () => {
     const user = userCredential.user;
     updateProfile(user, {displayName : username } ).then(
       () => {
-        console.log("User profile updated successfully");
-      }
-    
+        console.log("User profile updated");
+      }    
     )
+
+  
+    console.log(user.Role)
     console.log(user);
     console.log(user.displayName);
     alert("successfully created account")
@@ -120,9 +135,18 @@ console.log(error);
 }
 
 
+const LogOut = () => {
+  const auth = getAuth();
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+}
+
+
 let slider = document.querySelector('.slide');
         let index = 0;
-
         function next(){
           slider[index].classList.remove('active')
           index = (index + 1) % slider.length
@@ -142,7 +166,9 @@ return (
        
       </ul>
       <ul className={style.list2}>
-        <li>
+      <motion.div
+      whileInView={{ opacity: [0, 1] }}
+      transition={{ duration: 0.5, delayChildren: 0.8 }}><li>
           <img
             className={style.img1}
             src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png"
@@ -150,8 +176,10 @@ return (
           <a id="Login" onClick={() => isOpenDispatch({ component: "login" })}>
             Login
           </a>
-        </li>
-        <li>
+        </li></motion.div>
+        <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5, delayChildren: 0.5 }}><li>
           <img
             className={style.img1}
             src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
@@ -159,7 +187,7 @@ return (
           <a onClick={() => isOpenDispatch({ component: "register" })}>
             Register
           </a>
-        </li>
+        </li></motion.div>
       </ul>
       {isOpen.login && (
         <>
@@ -235,6 +263,16 @@ return (
               </div>
 
               <div>
+                <div className={style.label}>Role</div>
+                <input
+                  className={style.input}
+                  type="text"
+                  onChange={(e) => setRole(e.target.value)}
+                  placeholder="Admin or User"
+                />
+              </div>
+
+              <div>
                 <div className={style.submit2} onClick={signUp}>
                   Submit
                 </div>
@@ -245,8 +283,11 @@ return (
       )}
     </div>
 
+    <motion.div 
+    whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+    transition={{ duration: 0.6 }} >
     <h1 className={style.title}>DYSTOPIAN</h1>
-    <h3 className={style.info}>Register and Login to Start your Python journy with Dystopian</h3>
+    <h3 className={style.info}>Register and Login to Start your Python journy with Dystopian</h3></motion.div>
     <div className={style.Button}>Preview</div>
     <div className={style.seg}>
     <div className={style.slides}>
@@ -255,9 +296,9 @@ return (
     <div className={style.slide}><a className={style.slideImg} href=''></a></div>
     <div className={style.slide}><a className={style.slideImg} href=''></a></div>
     
-    </div>
-    <img className={style.ArrowImg}  onClick= {next} src='https://cdn-icons-png.flaticon.com/128/747/747904.png'></img>
-    </div>
+     </div>
+    
+     </div>
     
   </div>
 ); }

@@ -7,12 +7,32 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { app } from '../../firebase'
 import { getAuth } from 'firebase/auth'
 import { useState } from 'react'
+import { signOut } from 'firebase/auth'
+import { getFirestore } from 'firebase/firestore'
+import { collection , addDoc } from "firebase/firestore"
+import Link from 'next/link'
 
 
 const Curriculumpage = () => {
 
+const db = getFirestore(app)
+
 const [user, setUser] = useState('')
+
 const auth = getAuth(app);
+
+const LogOut = () => {
+  const auth = getAuth();
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    alert("You have been signed out")
+  }).catch((error) => {
+    // An error happened.
+  });
+}
+
+
+
  
 useEffect(() => {
   onAuthStateChanged(auth ,user => {
@@ -29,24 +49,26 @@ return (
     <div className={styles.Nav}>
       <div> 
         <ul className={styles.list}>
-          <li className={styles.listitem}> Name :  {user.displayName && user.displayName} |</li>
-          <li className={styles.listitem}> Stage : I</li>
+          <li className={styles.listitem}> Name :  {user.Role && user.Role} </li>
+          <li className={styles.listitem1}>| Stage : I</li>
         </ul> 
       </div>
-      <div className={styles.docs}><a href='/documentation'>Documentation</a></div>
+     
       
-        <div>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div>
-        </div>
-      </div>
+        <div className={styles.prog}>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div>
        
+        </div> <div className={styles.docs}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/684/684872.png"/><a className={styles.docs1} href='/documentation'>Documentation</a></div>
+        <div className={styles.Logout}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/1828/1828479.png"/><div onClick={LogOut} className={styles.docs1}>LogOut</div></div>
+      </div>
+       <div className={styles.main}>
     <div className={styles.Container}>
-      <div className={styles.heading}>The Cirriculum </div>
+      <div className={styles.heading}>The Curriculum </div>
     
     <div className={styles.box}>
 
     <div className={styles.list}>
-    <div className={styles.card}><h2>Chapter 1 <br/> <div className={styles.place}>Cyber city </div></h2> <div> Input and Output Statements</div>
-    <div className={styles.button}>Level 1</div></div>
+    <div className={styles.card}><h2>Chapter 1 <br/> <div className={styles.place}>Cyber city </div></h2> <div> I/O Statements</div>
+    <Link href="/"><div className={styles.button}>Level 1</div></Link></div>
 
     <div className={styles.card}><h2>Chapter 2 <br/> <div className={styles.place}>Warped City </div></h2> <div> Keywords and Variables</div>
     <div className={styles.button}>Level 2</div></div>
@@ -87,6 +109,64 @@ return (
     <div className={styles.card}><h2>Chapter 12 <br/> <div className={styles.place}>Junk yard </div></h2> <div> Function and its Prototype</div>
     <div className={styles.button}>Level 12</div></div>
 
+    </div>
+    
+    </div>
+    
+    </div>
+    <div className={styles.Dashboard}>
+    
+    <div className={styles.XP}>
+    <div className={styles.XP1}>
+    <h2 className={styles.XPHead}>Dashboard <img src="https://cdn-icons-png.flaticon.com/128/471/471713.png"></img></h2>
+    
+    <img src=""></img>
+    <img src=""></img>
+    </div>
+    <div className={styles.XP2}>
+    
+    <div className={styles.xpItem}>
+    <div className={styles.xpInfo}>
+    <span className={styles.xpName}>1.</span> 
+    <img className={styles.XPimg} src="/Badges/image6.png"></img> 
+    <div className={styles.XPName}> Rahul</div></div>
+    <div className={styles.userxp}>100xp</div>
+    </div>
+    <div className={styles.xpItem}>
+    <div className={styles.xpInfo}>
+    <span className={styles.xpName}>2.</span> 
+    <img className={styles.XPimg} src="/Badges/image4.png"></img> 
+    <div className={styles.XPName}> Naveed</div></div>
+    <div className={styles.userxp}>80xp</div>
+    </div>
+    <div className={styles.xpItem}>
+    <div className={styles.xpInfo}><span className={styles.xpName}>3.</span> 
+    <img className={styles.XPimg} src="/Badges/image8.png"></img> 
+    <div className={styles.XPName}> Pranshu</div></div>
+    <div className={styles.userxp}>70xp</div>
+    </div>
+    <div className={styles.xpItem}>
+    <div className={styles.xpInfo}>
+    <span className={styles.xpName}>4.</span> 
+    <img className={styles.XPimg} src="/Badges/image7.png"></img> 
+    <div className={styles.XPName}> Gokul</div></div>
+    <div className={styles.userxp}>60xp</div>
+    </div>
+    <div className={styles.xpItem}>
+    <div className={styles.xpInfo}>
+    <span className={styles.xpName}>5.</span> 
+    <img className={styles.XPimg} src="/Badges/image9.png"></img> 
+    <div className={styles.XPName}> Michael</div></div>
+    <div className={styles.userxp}>50xp</div>
+    </div>
+    
+    
+    </div>
+    </div>
+    <div className={styles.Dash}>
+    <div className={styles.DashXP1}>
+    <h2 className={styles.XPHead1}>XP Progress<span>Edit Goal</span></h2>
+    </div>
     </div>
     </div>
     </div>

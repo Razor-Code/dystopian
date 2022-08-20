@@ -5,6 +5,7 @@ import MainPage from '../components/MainPage/mainPage';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import app from '../Firebase';
+import AdimPage from '../components/AdimPage/AdimPage';
 
 
 export default function mainpage (){

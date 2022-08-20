@@ -1,12 +1,13 @@
 import Image from 'next/image';
+import styles from '../components/learnmore/learnmore.module.css';
 
 export default function LearnMore() {
   return (
     <main>
-      <div className="glass-container">
+      <div className={styles.glassContainer}>
         <h1>Team RazorCode</h1>
         {/* gallery of 6 pictures with three picture in a row */}
-        <div className="gallery">
+        <div className="gallery" >
           <Image src={"/creators/pranshu.png"} width={100} height={100} />
           <Image src={"/creators/naveed.png"} width={100} height={100} />
           <Image src={"/creators/gokul.png"} width={100} height={100} />

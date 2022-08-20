@@ -43,21 +43,32 @@ const [state, setState] = useState(false);
     }, []);
 
 
+    const skip = () => {
+        if(executer && user){
+            window.location.replace("/Curriculumpage");
+        }else{
+            window.location.replace("/mainpage");   
+        }
+    }
+
+
 return (
     <div>
     {
         state?
         loading?
-        <div className={styles.body}><video className={styles.video} src="/video.mp4" autoPlay muted></video></div>
+        <div className={styles.body}>
+        <div className={styles.skip} onClick={skip}>SKIP <img src='https://cdn-icons-png.flaticon.com/128/7719/7719974.png'></img></div>
+        <video className={styles.video} src="/video.mp4" autoPlay muted></video></div>
         :
         <div className={styles.Logo}><div className={styles.fadein} > <Logo className={styles.log} /></div></div>
         :
         <div>
         {
-            (executer && user) && <Curriculumpage/>
+            (executer && user) && window.location.replace("/Curriculumpage")
         }
         {
-            (executer && !user) && <MainPage/>
+            (executer && !user) && window.location.replace("/mainpage")
         }
         </div>
 }

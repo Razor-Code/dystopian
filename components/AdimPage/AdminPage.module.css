@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+.body{
+    background: #fff;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.Nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 60px;
+    background: linear-gradient(90deg ,#171941, #2dfbfd);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    z-index: 1;    
+}
+
+
+.head{
+    position: relative;
+    width: 400px;
+    font-weight: 700;
+    color: #21ebff;
+    text-decoration: none;
+    font-size: 2em;
+    height: 75px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    transition: 0.6s;
+    margin-bottom: 20px;   
+}
+
+
+.xpName img{
+    width: 32px;
+    height: 32px;
+    margin-left: 2;
+}
+
+.list1{
+    padding-left: 0px;
+    font-size: 1.3em;
+    border: #000;
+    border-radius: 15px;
+    transition: 0s;
+}
+
+
+.Nav ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+}
+
+.list2{
+    padding-right: 200px;
+}
+
+.Nav ul li{
+    position: relative;
+    list-style: none;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    font-family: vt323, monospace;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 10px;
+}
+
+.progressBar{
+    position: relative;
+    height: 40px;
+    width: 700px;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    margin-right: 50px;
+}
+
+.prog{
+    margin-left: -40px;
+}
+
+.img{
+    height: 32px;
+    width: 32px;
+}
+
+.progress{
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(90deg ,#000046, #1cb5e0);
+    border-radius: 50px;
+    justify-content: center;
+    font-size: 25px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.XPimg{
+    height: 32px;
+    width: 32px;
+    margin-top: -10px;
+}
+
+.xpInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.Nav ul li a{
+    position: relative;
+    margin: 0 8px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.6s;
+}
+
+
+.docs{
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 10px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -80px;
+    
+}
+
+.docs1{
+    align-items: center;
+    padding-left: 5px;
+}
+
+.docs:hover{
+    font-size: 1.5em;
+    transition: 0.6s;
+    color: #fff;
+}
+
+.Logout{
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 10px;
+    margin-left: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logout:hover {
+    font-size: 1.5em;
+    transition: 0.6s;
+    color: #fff;
+}
+
+.body1{
+    margin-top: 95px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar{
+    background: #fff;
+    height: 100%;
+    width: 5%;
+    border-right: 1px solid grey;   
+}
+
+.sidebar1{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.sidebar1 img{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.sidebar2{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 500px;
+    
+}
+
+.sidebar2 img{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.main{
+    background: #f8f8f8;
+    width: 95%;
+    padding: 30px;
+    display: flex;
+}
+
+.user{
+    background: #fff;
+    height: 85vh;
+    width: 70%;
+    border: #000 solid 1px;
+    color: #000;
+    padding: 2px;
+    
+    
+}
+
+.h2{
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.userHead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    border-top: #000 solid 1;
+}
+
+.userList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0px;
+    display: flex;
+}
+
+.userNo{
+    height: 100%;
+    width: 8%;
+    
+    padding-left: 20px;
+}
+
+
+.userName{
+    height: 100%;
+    width: 42%;
+    
+    padding-left: 20px;
+}
+
+.status{
+    height: 100%;
+    width: 30%;   
+    padding-left: 20px;
+}
+
+.xp{
+    width: 20%;
+    padding-left: 20px;
+}
+
+
+.ListNo{
+    height: 100%;
+    width: 8%;
+    
+    background: #f6f7f9;
+    padding: 15px;
+    padding-left: 20px;
+}
+
+
+.ListName{
+    height: 100%;
+    width: 42%;
+    
+    background: #f6f7f9;
+    padding: 15px;
+    padding-left: 20px;
+    margin-left: 5px;
+}
+
+.Liststatus{
+    height: 100%;
+    width: 30%;
+    padding: 15px;
+    padding-left: 20px;
+    background: #f6f7f9;
+    margin-left: 5px;
+}
+
+.Listxp{
+    background: #f6f7f9;
+    
+    width: 20%;
+    padding: 15px;
+    padding-left: 20px;
+    margin-left: 5px;   
+}
+
+.Box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh;
+    width: 30%;
+    margin-left: 30px;
+    border: #000 solid 1px;
+    padding: 10px;
+}
+
+.totalUser{
+    width: 100%;
+    height: 40%;
+    font-family: Ubuntu , sans-serif;
+    font-size: 20px;
+    border: #000 solid 1px;
+    color: grey;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+
+.totalUser h3{
+    font-size: 2em;
+    font-family: 'ubut', sans-serif;
+    color: #000;
+    margin-top: 0px;
+}
+
+
+.total{
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.newUser{
+    font-family: Ubuntu;
+    color: #1cb5e0;
+    padding-top: 10px;
+    border-top: #000 solid 1px;
+}
+
+.imgs{
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgs img{
+    height: 100px;
+    width: 100px;
+}
+
+.Graph{
+    border: #000 solid 1px;
+    padding: 10px;
+    width: 100%;
+    height: 60%;
+    margin-top: 20px;
+}
+
+.GraphHead{
+    color: #000;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.GraphHead span{
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GraphHead span img{
+    height: 20px;
+    width: 20px;
+    padding: 5px;   
+}
+
+
+.input{
+    width: 240px;
+    color: #000;
+    height: 35px;
+    background: #fff;
+    border: 0px;
+    outline: none;
+    box-shadow: inset 0 0 8px #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    padding-left: 8px;
+
+
+}
+
+.addUser{
+    display: flex;
+    align-items: center;
+}
+
+.submit{
+    width: 20%;
+    height: 35px;
+    background: #21ebff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif, Ubuntu;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 0.05px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    margin-left: 10px;
+}
+
+
+
+.submit:hover{
+    background: #21ebff;
+    color: #fff;
+    box-shadow: 0 0 7px #21ebff;
+    transition-delay: 0s;
+    font-size: 22px;
+    
+}
