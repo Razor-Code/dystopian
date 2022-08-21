@@ -63,13 +63,9 @@ const HomePage = () => {
         <div className={styles.sidebar}>
           <div className={styles.sidebar_item}>
             <div className={styles.sidebar1}>
-              <img src="/Logos/Home.png" width={50} height={50} />
+              <img src="/Logos/Bluehome.png" width={50} height={50} />
               <img src="/Logos/student.png" />
 
-            </div>
-            <div className={styles.sidebar2}>
-              <img src="/Logos/info.png" />
-              <img src="/Logos/log-out.png" />
             </div>
           </div>  </div>
 
@@ -78,7 +74,7 @@ const HomePage = () => {
 
           <div className={styles.Logincontainer}>
             <div className={styles.title}>
-              Login guild
+              Create guild
             </div>
             <form action="#">
               <div className={styles.details1}>
@@ -88,16 +84,16 @@ const HomePage = () => {
 
                   <div className={styles.inputBox}>
                     <span className={styles.details}>Guild Password</span>
-                    <input type="text" placeholder='Enter the Admin Name' value={createGuild.guildPassword} onChange={(e) => setCreateGuild({ ...createGuild, guildPassword: e.target.value })} required />
+                    <input type="text" placeholder='Enter Password' value={createGuild.guildPassword} onChange={(e) => setCreateGuild({ ...createGuild, guildPassword: e.target.value })} required />
                   </div>
 
                   <div className={styles.inputBox}>
                     <span className={styles.details}>Guild Capacity</span>
-                    <input type="number" placeholder='Enter the Password' value={createGuild.guildCapacity} onChange={(e) => setCreateGuild({ ...createGuild, guildCapacity: e.target.value })} required />
+                    <input type="number" placeholder='Enter the capacity' value={createGuild.guildCapacity} onChange={(e) => setCreateGuild({ ...createGuild, guildCapacity: e.target.value })} required />
                   </div>
 
                   <div className={styles.button}>
-                    <button type="submit" onClick={registerGuild}>Login Guild</button>
+                    <button type="submit" onClick={registerGuild}>Create Guild</button>
                   </div>
 
                 </div>

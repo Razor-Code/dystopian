@@ -58,6 +58,7 @@ const Curriculumpage = () => {
 
         <div className={styles.prog}>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div>
 
+
         </div> <div className={styles.docs}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/684/684872.png" /><a className={styles.docs1} href='/documentation'>Documentation</a></div>
         <div className={styles.Logout}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/1828/1828479.png" /><div onClick={LogOut} className={styles.docs1}>LogOut</div></div>
       </div>
@@ -171,6 +172,7 @@ const Curriculumpage = () => {
           </div>
         </div>
       </div>
+
     </div>
   )
 }

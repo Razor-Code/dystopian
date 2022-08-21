@@ -212,7 +212,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    padding-top: 500px;
+    padding-top: 300px
 
 }
 
@@ -222,38 +222,50 @@
     margin: 15px;
 }
 
-.add_guild {
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    background-image: linear-gradient(45deg, #000046 15%, #1cb5e0 65%);
-    border-radius: 50px;
-    display: flex;
+.sidebar_item{
     align-items: center;
-    justify-content: center;
+    
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: space-between;
 }
+
 
 .main {
     background: #f8f8f8;
     width: 95%;
-    padding: 30px;
+    max-height: 85vh;
+    height: 100%;
+
+    padding: 15px;
     display: flex;
+    flex-direction: column;
 }
 
 .user {
     background: #fff;
-    height: 85vh;
-    width: 70%;
-    border: #000 solid 1px;
+    height: 55vh;
+    width: 100%;
     color: #000;
     padding: 2px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
 
 
+.user_info{
+    height: 30vh;
+    width: 100%;
+    background: #fff;
+    margin: 15px;
 }
 
 .h2 {
     font-weight: bold;
     padding-left: 10px;
+    margin-top: 0px;
 }
 
 .userHead {
@@ -264,10 +276,32 @@
     font-family: 'ubut', sans-serif;
     padding-left: 2px;
     padding-right: 2px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-bottom: 10px;
     display: flex;
     border-top: #000 solid 1;
+}
+
+.userdiv{
+    height: 100%;
+    width: 70%;
+    margin-top: 0px;
+    margin-right: 15px;
+    border: #000 solid 1px;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+.list{
+    width: 100%;
+    height: 388px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.list::-webkit-scrollbar{
+    display: none;
 }
 
 .userList {
@@ -314,7 +348,7 @@
     height: 100%;
     width: 8%;
 
-    background: #f6f7f9;
+    background: #b0c4ec;
     padding: 15px;
     padding-left: 20px;
 }
@@ -324,7 +358,7 @@
     height: 100%;
     width: 42%;
 
-    background: #f6f7f9;
+    background: #b0c4ec;
     padding: 15px;
     padding-left: 20px;
     margin-left: 5px;
@@ -335,12 +369,12 @@
     width: 30%;
     padding: 15px;
     padding-left: 20px;
-    background: #f6f7f9;
+    background: #b0c4ec;
     margin-left: 5px;
 }
 
 .Listxp {
-    background: #f6f7f9;
+    background: #b0c4ec;
 
     width: 20%;
     padding: 15px;
@@ -350,26 +384,30 @@
 
 .Box {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    height: 85vh;
-    width: 30%;
-    margin-left: 30px;
-    border: #000 solid 1px;
-    padding: 10px;
+    height: 100%;
+    width: 100%;  
+    padding-left: 20px;
+
 }
 
 .totalUser {
-    width: 100%;
-    height: 40%;
+    width: 25%;
+    height: 100%;
     font-family: Ubuntu, sans-serif;
     font-size: 20px;
     border: #000 solid 1px;
     color: grey;
-    padding: 10px;
-
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
+    padding-top: 15px;
+}
+
+.newUser{
+    margin-top: -30px;
 }
 
 
@@ -399,16 +437,17 @@
 }
 
 .imgs img {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
 }
 
 .Graph {
     border: #000 solid 1px;
     padding: 10px;
-    width: 100%;
-    height: 60%;
-    margin-top: 20px;
+    width: 30%;
+    height: 100%;
+    color: #000;
+    margin-top: 0px;
 }
 
 .GraphHead {
@@ -420,7 +459,7 @@
 }
 
 .GraphHead span {
-    color: grey;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -453,6 +492,7 @@
 .addUser {
     display: flex;
     align-items: center;
+    margin-top: -5px;
 }
 
 .submit {
@@ -483,4 +523,107 @@
     transition-delay: 0s;
     font-size: 22px;
 
+}
+
+.guilds1{
+    color: #000;
+    font-size: 1.9em;
+    padding: 10px;
+    font-family: 'ubut', sans-serif;
+    font-weight: 700;
+}
+
+.guilds1:active,
+.guilds1:focus,
+.guilds1:hover{
+    color: blue;
+    transition-delay: 0s;
+}
+
+.Guildinfo{
+    height: 100%;
+    width: 25%;
+    color: #000;
+    border: #000 solid 1px;
+    padding-left: 15px;
+    margin-right: 15px;
+}
+
+.Guildname {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+    font-family: ubuntu;
+    font-size: 1.1em;
+}
+
+.Guildname span{
+    font-size: 30px;
+    padding-left: 10px;
+    font-family: ubuntu;
+}
+
+.Div3{
+    height: 100%;
+    width: 25%;
+    color: #000;
+    border: #000 solid 1px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.XP2{
+    padding: 20px;
+    width: 100%;
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    overflow: hidden;
+    overflow-y: scroll;   
+}
+
+.XP2::-webkit-scrollbar{
+    display: none;
+}
+
+.xpItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-family: Ubuntu, sans-serif;
+    padding-left: 5px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.xpName{
+    color: red;
+    font-size: 1.2em;
+    padding-right: 30px;
+}
+
+.xpItem div{
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.userxp{
+    color: grey;
+    
+}
+
+.head{
+    font-size: 1.5rem;
+    font-family: ubuntu;
+    color: #000;
+}
+
+
+.Div4{
+    height: 100%;
+    width: 25%;
+    color: #000;
+    border: #000 solid 1px;
+    margin-right: 20px;
 }

@@ -386,11 +386,12 @@ path.two {
     height: 300px;
     width: 700px;
     background: #fff;
-    margin: 20px;   
+    margin: 20px; 
+    border-radius: 15px;  
 }
 
 .slide:hover{
-    width: 850px;
+    width: 820px;
     height: 360px;
     transition: 0.9s;
     cursor: pointer;

@@ -47,8 +47,15 @@ const AdimPage = () => {
   }, [user]);
 
   useEffect(() => {
-    console.log(guilds);
+    
   }, [guilds]);
+
+
+  const currentGuildHandler = (guild) => {
+    setCurrentGuild(guild)
+    console.log(currentGuild);
+  } 
+  
 
   return (
     <div className={styles.body}>
@@ -67,17 +74,20 @@ const AdimPage = () => {
         <div className={styles.sidebar}>
           <div className={styles.sidebar_item}>
             <div className={styles.sidebar1}>
-              <img src="/Logos/Home.png" width={50} height={50} />
-              <img src="/Logos/student.png" />
-              <Link href="/AdminCreateGuild">
-                <div className={styles.add_guild}>
-                  <FaPlus />
-                </div>
-              </Link>
+            <Link href="/AdminCreateGuild">
+            <div className={styles.add_guild}>
+            <img src="/Logos/Home.png" width={50} height={50} />
+            </div>
+          </Link>
+              {guilds.map((guild, index) => (
+                <div className={styles.guilds1} onClick={currentGuildHandler}>G{index + 1}</div>
+              ))}
+              
             </div>
             <div className={styles.sidebar2}>
-              <img src="/Logos/info.png" />
-              <img src="/Logos/log-out.png" />
+            <img src="/Logos/info.png" />
+            <img src="/Logos/log-out.png" />
+              
             </div>
           </div>
 
@@ -85,7 +95,89 @@ const AdimPage = () => {
 
         </div>
         <div className={styles.main}>
+        <div className={styles.user_info}>
+
+
+        <div className={styles.Box}>
+
+
+        <div className={styles.Guildinfo}>
+        <h1>Guild Info</h1>
+        <div className={styles.Guildname}><h2>Guild Name : </h2><span> pannikutti</span></div>
+        <div className={styles.Guildname}><h2>Admin Name : </h2><span> Panni</span></div>
+        <div className={styles.Guildname}><h2>Capacity   : </h2><span> 10</span></div>
+        </div>
+
+            <div className={styles.totalUser}>
+              <div className={styles.totalUserHead}>
+                <div className={styles.imgs}>
+                  <img src="https://cdn-icons-png.flaticon.com/128/681/681494.png"></img>
+                  <img src="https://cdn-icons-png.flaticon.com/128/3121/3121571.png"></img>
+                </div>
+                <div className={styles.total}> Total Users : <h3>100</h3> </div>
+                <div className={styles.newUser}><b>+ Add New User</b></div>
+                <div className={styles.addUser}><input
+                  className={styles.input}
+                  type="text"
+                  placeholder="userID"
+                />
+                  <div className={styles.submit}>Add</div>
+                </div>
+              </div>
+        </div>
+
+        <div className={styles.Div3}>
+        <div className={styles.XP2}>
+                <div className={styles.head}>Toppers :</div>
+        <div className={styles.xpItem}>
+          <div className={styles.xpInfo}>
+            <span className={styles.xpName}>1.</span>
+              <img className={styles.XPimg} src="/Badges/image6.png"></img>
+            <div className={styles.XPName}> vijay</div></div>
+          <div className={styles.userxp}>100xp</div>
+        </div>
+
+        <div className={styles.xpItem}>
+          <div className={styles.xpInfo}>
+            <span className={styles.xpName}>2.</span>
+              <img className={styles.XPimg} src="/Badges/image4.png"></img>
+            <div className={styles.XPName}> Ajith</div></div>
+          <div className={styles.userxp}>80xp</div>
+        </div>
+
+        <div className={styles.xpItem}>
+          <div className={styles.xpInfo}>
+            <span className={styles.xpName}>3.</span>
+              <img className={styles.XPimg} src="/Badges/image8.png"></img>
+            <div className={styles.XPName}> Pranshu</div></div>
+          <div className={styles.userxp}>70xp</div>
+        </div>
+
+        <div className={styles.xpItem}>
+          <div className={styles.xpInfo}>
+            <span className={styles.xpName}>4.</span>
+             <img className={styles.XPimg} src="/Badges/image7.png"></img>
+            <div className={styles.XPName}> Gokul</div></div>
+          <div className={styles.userxp}>60xp</div>
+        </div>
+
+        <div className={styles.xpItem}>
+          <div className={styles.xpInfo}>
+            <span className={styles.xpName}>5.</span>
+             <img className={styles.XPimg} src="/Badges/image9.png"></img>
+            <div className={styles.XPName}> Michael</div></div>
+          <div className={styles.userxp}>50xp</div>
+        </div>
+        
+        </div>
+        </div>
+
+        <div className={styles.Div4}>
+        </div>
+
+        </div>
           <div className={styles.user}>
+         <div className={styles.userdiv}>
             <h2 className={styles.h2}>DashBoard</h2>
             <div className={styles.userHead}>
               <div className={styles.userNo}><b>No.</b></div>
@@ -93,7 +185,7 @@ const AdimPage = () => {
               <div className={styles.status}><b>Status</b></div>
               <div className={styles.xp}><b>XP</b></div>
             </div>
-
+                <div className={styles.list}>
             <div className={styles.userList}>
               <div className={styles.ListNo}><span>1</span></div>
               <div className={styles.ListName}><span>John</span></div>
@@ -128,27 +220,31 @@ const AdimPage = () => {
               <div className={styles.Liststatus}><span>Strings</span></div>
               <div className={styles.Listxp}><span>XP</span></div>
             </div>
+
+            <div className={styles.userList}>
+              <div className={styles.ListNo}><span>5</span></div>
+              <div className={styles.ListName}><span>John</span></div>
+              <div className={styles.Liststatus}><span>Strings</span></div>
+              <div className={styles.Listxp}><span>XP</span></div>
+            </div>
+
+            <div className={styles.userList}>
+              <div className={styles.ListNo}><span>5</span></div>
+              <div className={styles.ListName}><span>John</span></div>
+              <div className={styles.Liststatus}><span>Strings</span></div>
+              <div className={styles.Listxp}><span>XP</span></div>
+            </div>
+
+            <div className={styles.userList}>
+              <div className={styles.ListNo}><span>5</span></div>
+              <div className={styles.ListName}><span>John</span></div>
+              <div className={styles.Liststatus}><span>Strings</span></div>
+              <div className={styles.Listxp}><span>XP</span></div>
+            </div>
+            </div>
           </div>
 
-          <div className={styles.Box}>
-            <div className={styles.totalUser}>
-              <div className={styles.totalUserHead}>
-                <div className={styles.imgs}>
-                  <img src="https://cdn-icons-png.flaticon.com/128/681/681494.png"></img>
-                  <img src="https://cdn-icons-png.flaticon.com/128/3121/3121571.png"></img>
-                </div>
-                <div className={styles.total}> Total Users : <h3>100</h3> </div>
-                <div className={styles.newUser}><b>+ Add New User</b></div>
-                <div className={styles.addUser}><input
-                  className={styles.input}
-                  type="text"
-                  placeholder="userID"
-                />
-                  <div className={styles.submit}>Add</div>
-                </div>
-              </div>
-
-            </div>
+          
             <div className={styles.Graph}>
               <div className={styles.GraphHead}>
                 <h2>Student's xp progress :</h2>
@@ -159,7 +255,8 @@ const AdimPage = () => {
         </div>
       </div>
     </div>
-
+    </div>
+          
   )
 }
 
