@@ -16,16 +16,21 @@ export default function CurriculumPage() {
   const [executer, setExecuter] = useState(false)
 
   useEffect(() => {
-    const auth = getAuth(app)
-    onAuthStateChanged(auth, user => {
-      setExecuter(true)
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user)
+        setExecuter(true)
+        await getDoc(doc(db, 'users', user.uid)).then(result => {
+          if (result.exists()) {
+            if (result.data().role == "admin") {
+              router.replace('/AdminPage')
+            }
+          }
+        })
       } else {
-        // router.push('/mainpage')
+        router.replace('/mainpage')
       }
-    }
-    )
+    })
   }, [])
 
   return (

@@ -26,6 +26,8 @@ export default function mainpage() {
           } else {
             router.replace('/Curriculumpage')
           }
+        } else {
+          console.log("please reload the page");
         }
       } else {
         setExecuted(true)
