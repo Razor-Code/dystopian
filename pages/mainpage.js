@@ -1,10 +1,11 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import MainPage from '../components/MainPage/mainPage';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import app, { db } from '../Firebase';
+import app, { auth, db } from '../Firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
+import Logo from '../components/home/logo';
 
 
 export default function mainpage() {
@@ -16,20 +17,19 @@ export default function mainpage() {
   const router = useRouter()
 
   useEffect(() => {
-    const auth = getAuth(app)
     onAuthStateChanged(auth, async user => {
       if (user) {
         let result = await getDoc(doc(db, 'users', user.uid))
-
-        console.log(result.data())
-
-        if (result.data().role == "admin") {
-          router.push('/AdminPage')
-        } else {
-          router.push('/Curriculumpage')
+        if (result.exists()) {
+          if (result.data().role == "admin") {
+            router.push('/AdminPage')
+          } else {
+            router.replace('/Curriculumpage')
+          }
         }
+      } else {
+        setExecuted(true)
       }
-      setExecuted(true)
     }
     )
   }, [])
@@ -37,7 +37,7 @@ export default function mainpage() {
   return (
     <div>
       {
-        executed && <MainPage />
+        executed ? <MainPage /> : (<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Logo /></div>)
       }
     </div>
   )

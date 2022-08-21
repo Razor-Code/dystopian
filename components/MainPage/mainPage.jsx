@@ -124,6 +124,7 @@ export default function MainPage() {
             email: email,
             role: "admin",
             guilds: [],
+            xp: 0,
           })
         } else {
           await setDoc(doc(db, 'users', user.uid), {

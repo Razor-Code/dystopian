@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './AdminPage.module.css'
-import Image from 'next/image'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth, db } from '../../Firebase'
 import { useRouter } from 'next/router'
-import { collection, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore'
-import { FaPlus } from "react-icons/fa"
+import { collection, doc, getDoc, getDocs, onSnapshot, query, setDoc, where } from 'firebase/firestore'
 import Link from 'next/link'
 
 const AdimPage = () => {
@@ -15,15 +13,20 @@ const AdimPage = () => {
   const [guilds, setGuilds] = useState([])
   const [currentGuild, setCurrentGuild] = useState('')
   const [students, setStudents] = useState([])
+  const [studentsDetails, setStudentsDetails] = useState([])
+  const [unSubscribe, setUnSubscribe] = useState()
   const addUserRef = useRef(null)
 
+  // checks the authentication state and redirect the user accordingly
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user)
         await getDoc(doc(db, 'users', user.uid)).then(result => {
-          if (result.data().role != "admin") {
-            router.push('/Curriculumpage')
+          if (result.exists()) {
+            if (result.data().role != "admin") {
+              router.replace('/Curriculumpage')
+            }
           }
         })
       } else {
@@ -32,6 +35,7 @@ const AdimPage = () => {
     })
   }, [])
 
+  // get the list of all the guilds owned by the admin
   useEffect(() => {
     if (user) {
       const guildQuery = query(collection(db, "guilds"), where("admin", "==", user.uid))
@@ -48,23 +52,48 @@ const AdimPage = () => {
     }
   }, [user]);
 
+  // listen for realtime updates in the current guild collection
   useEffect(() => {
     if (currentGuild) {
-      getDoc(doc(db, 'guilds', currentGuild.id)).then(result => {
-        setStudents(result.data().guildMembers)
-      })
+      if (unSubscribe) {
+        unSubscribe()
+      }
+      setUnSubscribe(() =>
+        onSnapshot(doc(db, 'guilds', currentGuild.id), (doc) => {
+          setStudents(doc.data().guildMembers)
+        }));
     }
   }, [currentGuild]);
 
-
-  const currentGuildHandler = (guild) => {
-    console.log(guild);
-    setCurrentGuild(guild)
-  }
+  // fetch the student details if the student is modified
+  useEffect(() => {
+    if (students.length > 0) {
+      let studentsArray = []
+      const studentsQuery = query(collection(db, "users"), where("uid", "in", students))
+      getDocs(studentsQuery).then(querySnapshot => {
+        querySnapshot.forEach((doc) => {
+          studentsArray.push({
+            id: doc.id,
+            ...doc.data()
+          })
+        });
+        setStudentsDetails(studentsArray)
+        console.log(studentsArray)
+      }).catch(e => {
+        console.log(e)
+      })
+    }
+  }, [students]);
 
   const handleAddStudent = (e) => {
     e.preventDefault()
     if (addUserRef.current.value != '') {
+
+      // if there is no guild selected alert user
+      if (!currentGuild) {
+        alert("Please select a guild")
+        return;
+      }
 
       // check if the user is already in the guild
       let userInGuild = false
@@ -89,7 +118,14 @@ const AdimPage = () => {
           } else {
             await setDoc(doc(db, 'guilds', currentGuild.id), {
               guildMembers: [...students, user.uid],
-            }, { merge: true })
+            }, { merge: true }).catch(e => {
+              console.log(e)
+              alert("Error adding user to guild")
+            }).then(() => {
+              setStudents([...students, user.uid])
+              alert("User added to the guild")
+              addUserRef.current.value = ''
+            })
           }
         }
       })
@@ -120,7 +156,7 @@ const AdimPage = () => {
                 </div>
               </Link>
               {guilds.map((guild, index) => (
-                <div className={styles.guilds1} key={index} onClick={() => currentGuildHandler(guild)}>G{index + 1}</div>
+                <div className={styles.guilds1} key={index} onClick={() => setCurrentGuild(guild)}>G{index + 1}</div>
               ))}
 
             </div>

@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import React from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import app from '../Firebase';
-import MainPage from '../components/MainPage/mainPage';
-import AdimPage from "../components/AdimPage/AdimPage";
 import { useRouter } from "next/router";
 
 
@@ -24,7 +22,7 @@ export default function CurriculumPage() {
       if (user) {
         setUser(user)
       } else {
-        router.push('/mainpage')
+        // router.push('/mainpage')
       }
     }
     )
