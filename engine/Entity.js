@@ -33,7 +33,7 @@ export default class Entity extends GameObject {
         this.game.player.facing = this.direction < 0 ? 1 : 0;
 
         this.game.player.knockback();
-        this.game.player.health -= 50;
+        this.game.player.health -= Math.floor((Math.random() * 10) + 10);;
         this.colliding = true;
       }
     }

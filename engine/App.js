@@ -8,6 +8,7 @@ function App() {
   var canvasRef = useRef();
   var gameRef = useRef();
 
+
   useEffect(() => {
     var ssm = new SpriteSheetManager();
 
@@ -66,8 +67,7 @@ function App() {
       } else if(game.player.health <= 0) {
         // Game Restart when Player health drops to 0
         // NOT WORKING
-        game = new Game(canvas, ctx, ssm);
-        game.start();
+        game.restart();
       }
 
       game.renderGame(delta);

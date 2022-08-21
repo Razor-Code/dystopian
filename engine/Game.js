@@ -45,7 +45,7 @@ export default class Game {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 'X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0 ,0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -146,6 +146,7 @@ export default class Game {
         if (y !== this.levelHeight - 1) {
           flag |= !bottom ? 8 : 0;
         }
+
       }
 
       collisionMap.push(flag);
@@ -163,6 +164,24 @@ export default class Game {
     this.particleSystem.particles = [];
 
     this.camera.followingObject = this.player;
+  }
+
+  restart() {
+    this.end();
+    this.camera.endY = this.levelHeight - 7;
+    this.camera.startY = this.levelHeight - 15;
+    this.camera.maxY = this.levelHeight;
+    this.camera.minX = 0;
+
+    this.player.y = this.levelHeight - 12;
+    this.player.health = 100;
+    this.player.x = 5;
+    this.player.y = 5;
+    this.player.setAnimation("idle");
+    this.player.direction = 0;
+
+    this.start();
+
   }
 
   convertIndexToCoordinates(i) {
@@ -256,10 +275,26 @@ export default class Game {
     //   }
     // }
 
-    this.ctx.fillStyle = "#00cafe";
-    this.ctx.font = "20px Readex Pro";
-    this.ctx.fillText(this.player.health + "", 5, 20);
+    if (this.player.health < 20) {
+      this.ctx.fillStyle = "#e94b3c";
+    } else {
+      this.ctx.fillStyle = "#fff";
+    }
+    this.ctx.font = "16px Readex Pro";
+    // this.ctx.drawRect(0, 0, 100, 20, "#fff");
+    this.ctx.fillText("HP: " + this.player.health, 5, 20);
     this.ctx.font = "14px Readex Pro";
+
+    // Red rectangle
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "#444";
+    this.ctx.rect(5, 30, 200, 10);
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.fillStyle = "#fff";
+    this.ctx.rect(5, 30, this.player.health * 2, 10);
+    this.ctx.fill();
 
     this.player.render(delta);
     for (var entityUUID in this.entities) {
