@@ -2,8 +2,9 @@ import Curriculumpage from "../components/curriculumPage/Curriculumpage";
 import { useState, useEffect } from "react";
 import React from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import app from '../Firebase';
+import app, { auth, db } from '../Firebase';
 import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
 
 
 

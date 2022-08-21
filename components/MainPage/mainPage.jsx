@@ -132,6 +132,7 @@ export default function MainPage() {
             name: username,
             email: email,
             role: "user",
+            xp: 0,
           })
         }
 
