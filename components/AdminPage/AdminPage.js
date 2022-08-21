@@ -48,6 +48,7 @@ const AdimPage = () => {
           })
         });
         setGuilds(guildsArray)
+        setCurrentGuild(guildsArray[0])
       })
     }
   }, [user]);

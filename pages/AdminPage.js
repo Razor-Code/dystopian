@@ -1,6 +1,9 @@
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import AdimPage from "../components/AdminPage/AdminPage";
+import { auth, db } from '../Firebase';
 
 const Adminpage = () => {
 
