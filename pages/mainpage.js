@@ -20,6 +20,7 @@ export default function mainpage() {
     onAuthStateChanged(auth, async user => {
       if (user) {
         let result = await getDoc(doc(db, 'users', user.uid))
+
         if (result.exists()) {
           if (result.data().role == "admin") {
             router.push('/AdminPage')
@@ -28,6 +29,8 @@ export default function mainpage() {
           }
         } else {
           console.log("please reload the page");
+replace('/Curriculumpage')
+
         }
       } else {
         setExecuted(true)
