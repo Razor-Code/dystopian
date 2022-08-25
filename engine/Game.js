@@ -58,7 +58,7 @@ export default class Game {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 5, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 5, 5, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5 ,5, 5, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0],
-      ['x', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0],
       [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ,5 ,5 ,5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ,5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     ];
 
@@ -308,9 +308,6 @@ export default class Game {
     this.ctx.rect(5, 30, this.player.health * 2, 10);
     this.ctx.fill();
 
-    const image = new Image();
-    image.src = enemyIdle.src;
-
     this.player.render(delta);
     for (var entityUUID in this.entities) {
       var entity = this.entities[entityUUID];
@@ -348,8 +345,14 @@ export default class Game {
           this.render.drawRect(x, y + (1 - width), 1, width, color);
           this.render.drawText("1", x + 0.49, y + 0.92, 14);
         }
-        if (collisionFlag & 16) {
-          this.ctx.drawImage(image, x + 100, y + 100, 32, 25);
+        if (collisionFlag & 16) {        
+          const image = new Image();
+          image.src = enemyIdle.src;
+          image.height = enemyIdle.height;
+          image.width = enemyIdle.width;
+          // this.render.drawImage(image, x, y, 32, 25, x, y, 64, 50);
+          this.render.drawText("XENOBUG", x+0.2, y+0.5, 14);
+        
         }
       }
     }

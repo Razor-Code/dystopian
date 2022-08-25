@@ -37,18 +37,18 @@ export default function() {
         </div>
       )}
 
-      {/* <div className="panels"> */}
-        {/* <div className="popup-question">
-          <span className="question-heading">QUESTION: </span>
-          <span className="question-description">What is the function used to print a statement in Python?</span>
+      <div className="panels">
+        <div className="popup-question">
+          <p className="question-heading">QUESTION: </p>
+          <p className="question-description">What is the function used to print a statement in Python?</p>
           <div className="question-options">
             <button className="option">A. println()</button>
             <button className="option">B. Print()</button>
             <button className="option">C. print()</button>
           </div> 
-        </div> */}
+        </div>
         <App />
-      {/* </div> */}
+      </div>
     </>
   )
 }
