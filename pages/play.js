@@ -36,7 +36,19 @@ export default function() {
           {/* <span className="popup-hint">Hint: Xenobugs are often located at the highest level of the hive structure</span> */}
         </div>
       )}
-      <App />
+
+      {/* <div className="panels"> */}
+        {/* <div className="popup-question">
+          <span className="question-heading">QUESTION: </span>
+          <span className="question-description">What is the function used to print a statement in Python?</span>
+          <div className="question-options">
+            <button className="option">A. println()</button>
+            <button className="option">B. Print()</button>
+            <button className="option">C. print()</button>
+          </div> 
+        </div> */}
+        <App />
+      {/* </div> */}
     </>
   )
 }

@@ -285,3 +285,24 @@ kbd{
     color: #00cafe;
   }
 }
+
+.popup-question {
+  display: hidden;
+  min-width: 50%;
+  height: 100%;
+  padding: 30px;
+}
+
+.panels {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.question-heading {
+  font-weight: bold;
+  font-size: 20px;
+  opacity: 0.2;
+  margin-bottom: 10px;
+}
+
