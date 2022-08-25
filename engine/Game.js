@@ -9,7 +9,7 @@ import SpriteSheetManager from "./SpriteSheetManager";
 import { v4 } from "uuid";
 import { getRandomInteger } from "./random";
 
-import enemyIdle from '../public/sprites/villains/idle/1.png';
+import enemyIdle from "../public/sprites/villains/idle/1.png";
 
 export default class Game {
   constructor(canvas, ctx, ssm) {
@@ -58,7 +58,7 @@ export default class Game {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 5, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 5, 5, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 5 ,5, 5, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0],
+      ['x', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 5, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0, 0, 0, 0],
       [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ,5 ,5 ,5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ,5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
     ];
 
@@ -308,6 +308,9 @@ export default class Game {
     this.ctx.rect(5, 30, this.player.health * 2, 10);
     this.ctx.fill();
 
+    const image = new Image();
+    image.src = enemyIdle.src;
+
     this.player.render(delta);
     for (var entityUUID in this.entities) {
       var entity = this.entities[entityUUID];
@@ -346,7 +349,7 @@ export default class Game {
           this.render.drawText("1", x + 0.49, y + 0.92, 14);
         }
         if (collisionFlag & 16) {
-          this.render.drawImage(x, y, 1, width, color);
+          this.ctx.drawImage(image, x + 100, y + 100, 32, 25);
         }
       }
     }

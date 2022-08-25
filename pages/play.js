@@ -14,7 +14,7 @@ export default function() {
     
     if (displayHint) {
       setTimeout(() => {
-        setDisplayPopup(false);
+        setDisplayHint(false);
       }, 10000);
     }
   }, [])
@@ -32,7 +32,7 @@ export default function() {
       {displayHint && (
         <div className="popup-hint">
           <span className="hint-heading">HINT:</span>
-          <span className="hint-description">Avoid the red critters to not rapidly lose your HP</span>
+          <span className="hint-description">Avoid getting hit by red critters to save your HP</span>
           {/* <span className="popup-hint">Hint: Xenobugs are often located at the highest level of the hive structure</span> */}
         </div>
       )}

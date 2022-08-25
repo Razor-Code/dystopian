@@ -223,17 +223,17 @@ kbd{
 .popup-hint {
   position: absolute;
   top: -100;
-  right: 0;
+  right: min(-25%, -250px);
   width: max(25%, 200px);
   height: 100px;
   color: #fff!important;
-  background: rgba(0, 255, 255, 0.5);
+  background: rgba(0, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   z-index: 1;
   padding: 20px;
   text-align: start;
-  /* animation: fade 100s ease-in-out; */
+  animation: hint-hide 5.2s ease-in-out 5s;
 }
 
 .popup-heading {
@@ -258,6 +258,21 @@ kbd{
   margin-top: 10%;
   text-align: center;
   color: #bbb;
+}
+
+@keyframes hint-hide {
+  0% {
+    opacity: 0;
+    right: min(-25%, -250px);
+  }
+  25%, 90% {
+    opacity: 1;
+    right: 0;
+  }
+  100% {
+    opacity: 0;
+    right: min(-25%, -250px);
+  }
 }
 
 @keyframes fade {
