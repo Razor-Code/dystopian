@@ -9,6 +9,8 @@ import SpriteSheetManager from "./SpriteSheetManager";
 import { v4 } from "uuid";
 import { getRandomInteger } from "./random";
 
+import enemyIdle from '../public/sprites/villains/idle/1.png';
+
 export default class Game {
   constructor(canvas, ctx, ssm) {
     /**
@@ -126,30 +128,34 @@ export default class Game {
 
       var flag = 0;
 
-      if (block && block !== 'x') {
+      if (block) {
         var [x, y] = this.convertIndexToCoordinates(i);
-        var top = this.map[this.convertCoordinatesToIndex(x, y - 1)];
-        var bottom = this.map[this.convertCoordinatesToIndex(x, y + 1)];
 
-        var left = this.map[this.convertCoordinatesToIndex(x - 1, y)];
-        var right = this.map[this.convertCoordinatesToIndex(x + 1, y)];
+        var top = this.map[this.convertCoordinatesToIndex(x, y - 1)] === 'x' ? 0 : this.map[this.convertCoordinatesToIndex(x, y - 1)];
+        var bottom = this.map[this.convertCoordinatesToIndex(x, y + 1)] === 'x' ? 0 : this.map[this.convertCoordinatesToIndex(x, y + 1)];
 
-        if (x !== 0) {
-          flag |= !left ? 1 : 0;
-        }
-        if (x !== this.levelWidth - 1) {
-          flag |= !right ? 2 : 0;
-        }
-        if (y !== 0) {
-          flag |= !top ? 4 : 0;
-        }
-        if (y !== this.levelHeight - 1) {
-          flag |= !bottom ? 8 : 0;
-        }
+        var left = this.map[this.convertCoordinatesToIndex(x - 1, y)] === 'x' ? 0 : this.map[this.convertCoordinatesToIndex(x - 1, y)];
+        var right = this.map[this.convertCoordinatesToIndex(x + 1, y)] === 'x' ? 0 : this.map[this.convertCoordinatesToIndex(x + 1, y)];
+
 
         if (block === 'x') {
           flag |= 16;
+        } else {
+          if (x !== 0) {
+            flag |= !left ? 1 : 0;
+          }
+          if (x !== this.levelWidth - 1) {
+            flag |= !right ? 2 : 0;
+          }
+          if (y !== 0) {
+            flag |= !top ? 4 : 0;
+          }
+          if (y !== this.levelHeight - 1) {
+            flag |= !bottom ? 8 : 0;
+          }
         }
+
+        
 
       }
 
@@ -339,10 +345,8 @@ export default class Game {
           this.render.drawRect(x, y + (1 - width), 1, width, color);
           this.render.drawText("1", x + 0.49, y + 0.92, 14);
         }
-
         if (collisionFlag & 16) {
-          this.render.drawRect(x, y, width, 1, color);
-          this.render.drawText("1", x + 0.49, y + 0.92, 14);
+          this.render.drawImage(x, y, 1, width, color);
         }
       }
     }
@@ -363,6 +367,20 @@ export default class Game {
       }
       if (collisionFlag & 8) {
         this.render.drawRect(x, y + 0.95, 1, 0.05, "#fff");
+      }
+      if (collisionFlag & 16) {
+        this.render.drawSprite(
+          enemyIdle.src,
+          this.x -
+            w * 1.55 +
+            (Array.isArray(this.animation.xOffset)
+              ? this.animation.xOffset[this.facing]
+              : this.animation.xOffset) +
+            xOffset,
+          this.y - h * 1.05 + this.animation.yOffset,
+          w * h * 4.3,
+          w * h * 4.3 * 0.875
+        );
       }
     }
 

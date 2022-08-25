@@ -220,6 +220,22 @@ kbd{
   animation: fade 3.2s ease-in-out;
 }
 
+.popup-hint {
+  position: absolute;
+  top: -100;
+  right: 0;
+  width: max(25%, 200px);
+  height: 100px;
+  color: #fff!important;
+  background: rgba(0, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  padding: 20px;
+  text-align: start;
+  /* animation: fade 100s ease-in-out; */
+}
+
 .popup-heading {
   font-size: 40px;
   text-align: center;
@@ -228,6 +244,14 @@ kbd{
 .popup-description {
   font-size: 20px;
   text-align: center;
+}
+
+.hint-heading {
+  font-size: 20px;
+}
+
+.hint-description {
+  font-size: 14px;
 }
 
 .popup-hint {
