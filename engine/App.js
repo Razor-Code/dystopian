@@ -3,11 +3,15 @@ import Game from "./Game";
 import SpriteSheets from "./data/SpriteSheets";
 import SpriteSheetManager from "./SpriteSheetManager";
 import SpriteSheet from "./SpriteSheet";
+// import './App.module.css'
+
 
 function App() {
   var canvasRef = useRef();
   var gameRef = useRef();
 
+
+  const [displayQuestion, setDisplayQuestion] = useState(false);
 
   useEffect(() => {
     var ssm = new SpriteSheetManager();
@@ -32,7 +36,7 @@ function App() {
 
     var last = performance.now();
 
-    var game = new Game(canvas, ctx, ssm);
+    var game = new Game(canvas, ctx, ssm, setDisplayQuestion);
     gameRef.current = game;
 
     window.game = game;
@@ -102,16 +106,24 @@ function App() {
   }, []);
 
   return (
-    <>
-      <canvas ref={canvasRef} />
-
-      <div className='controls'>
-        <kbd>W</kbd>
-        <kbd>A</kbd>
-        <kbd>S</kbd>
-        <kbd>D</kbd>
-      </div>
-    </>
+    <div className="flex flex-col md:flex-wrap md:flex-row">    
+        <div className={displayQuestion ? "popup-question" : "hide-question"}>
+          <p className="question-heading">QUESTION: </p>
+          <p className="question-description">What is the function used to print a statement in Python?</p>
+          <div className="question-options">
+            <button className="option">A. println()</button>
+            <button className="option">B. Print()</button>
+            <button className="option">C. print()</button>
+          </div> 
+        </div>
+        <canvas ref={canvasRef} />
+        <div className='controls'>
+          <kbd>W</kbd>
+          <kbd>A</kbd>
+          <kbd>S</kbd>
+          <kbd>D</kbd>
+        </div>
+    </div>
   );
 }
 

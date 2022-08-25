@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
 
 html,
@@ -287,17 +290,22 @@ kbd{
 }
 
 .popup-question {
-  display: hidden;
   min-width: 30%;
   height: 100vh;
   padding: 30px;
   background-color: #111;
+  position: absolute;
   border-right: 20px solid #000;
 }
 
 .panels {
   display: flex;
   flex-direction: row;
+}
+
+.hide-question {
+  visibility: hidden;
+  display: none;
 }
 
 
@@ -380,7 +388,7 @@ button.option:after{
 
 
 media screen and (max-width: 768px) {
-  .panels{
+  .panels {
     display: flex;
     flex-direction: column;
   }

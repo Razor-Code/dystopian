@@ -12,7 +12,7 @@ import { getRandomInteger } from "./random";
 import enemyIdle from "../public/sprites/villains/idle/1.png";
 
 export default class Game {
-  constructor(canvas, ctx, ssm) {
+  constructor(canvas, ctx, ssm, setDisplayQuestion) {
     /**
      * @type {HTMLCanvasElement}
      */
@@ -27,6 +27,8 @@ export default class Game {
      * @type {SpriteSheetManager}
      */
     this.ssm = ssm;
+
+    this.setDisplayQuestion = setDisplayQuestion;
 
     this.render = new Render(this);
     this.camera = new Camera(this);
@@ -362,6 +364,9 @@ export default class Game {
       var tile = tileKeys[i];
       var collisionFlag = this.player.tiles[tile];
       var [x, y] = this.convertIndexToCoordinates(tile);
+      if (x === 20 && y === 5) {
+        this.setDisplayQuestion(true);
+      }
       if (collisionFlag & 1) {
         this.render.drawRect(x, y, 0.05, 1, "#fff");
       }
