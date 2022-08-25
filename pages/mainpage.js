@@ -29,7 +29,7 @@ export default function mainpage() {
           }
         } else {
           console.log("please reload the page");
-replace('/Curriculumpage')
+router.replace('/Curriculumpage')
 
         }
       } else {

@@ -298,6 +298,7 @@ kbd{
 .panels {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 
@@ -377,3 +378,4 @@ button.option:after{
   transition: 0.5s;
   transition-delay: 0.5s;
 } */
+

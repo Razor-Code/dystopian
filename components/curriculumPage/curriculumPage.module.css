@@ -1,22 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-.main{
-    background: #03f7eb;
-}
-
 
 .body{
     position: absolute;
     width: 100vw;
     max-height: 100vh;
     color: #fff;
-    
+    background: url('/curriculambg2.png');
     background-size: contain;
     align-items: center;
     justify-content: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(5px);
 }
 
 .main{
