@@ -377,3 +377,11 @@ button.option:after{
   transition: 0.5s;
   transition-delay: 0.5s;
 } */
+
+
+media screen and (max-width: 768px) {
+  .panels{
+    display: flex;
+    flex-direction: column;
+  }
+}

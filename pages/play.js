@@ -4,6 +4,7 @@ import App from '../engine/App';
 export default function() {
   const [displayPopup, setDisplayPopup] = useState(true);
   const [displayHint, setDisplayHint] = useState(true);
+  const [displayQuestion, setDisplayQuestion] = useState(false);
 
   useEffect(() => {
     if (displayPopup) {
@@ -47,7 +48,7 @@ export default function() {
             <button className="option">C. print()</button>
           </div> 
         </div>
-        <App />
+        <div><App /></div>
       </div>
     </>
   )
