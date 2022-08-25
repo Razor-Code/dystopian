@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './AdminPage.module.css'
-import { onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth, db } from '../../Firebase'
 import { useRouter } from 'next/router'
 import { collection, doc, getDoc, getDocs, onSnapshot, query, setDoc, where } from 'firebase/firestore'
 import Link from 'next/link'
+import app from '../../Firebase'
+import { getAuth } from 'firebase/auth'
 
 const AdimPage = () => {
 
@@ -134,13 +136,23 @@ const AdimPage = () => {
   }
 
 
+
+  const logout = () => {
+    const auth = getAuth(app);
+    signOut(auth)
+  }
+
   return (
     <div className={styles.body}>
       <div className={styles.Nav}>
-        <div>
+        <div className={styles.Navlist}>
           <ul className={styles.list}>
             <li className={styles.listitem}> Name : {user.displayName && user.displayName} </li>
             <li className={styles.listitem1}>| Admin</li>
+          </ul>
+          <ul className={styles.list1}>
+          <Link href=""><div className={styles.forum}>Forum</div></Link>
+          <Link href=""><div className= {styles.logout} onClick={logout}>Logout</div></Link>
           </ul>
         </div>
 
@@ -153,17 +165,12 @@ const AdimPage = () => {
             <div className={styles.sidebar1}>
               <Link href="/AdminCreateGuild">
                 <div className={styles.add_guild}>
-                  <img src="/Logos/Home.png" width={50} height={50} />
+                  <img src="/Logos/home.png" width={50} height={50} />
                 </div>
               </Link>
               {guilds.map((guild, index) => (
                 <div className={styles.guilds1} key={index} onClick={() => setCurrentGuild(guild)}>G{index + 1}</div>
               ))}
-
-            </div>
-            <div className={styles.sidebar2}>
-              <img src="/Logos/info.png" />
-              <img src="/Logos/log-out.png" />
 
             </div>
           </div>
@@ -188,8 +195,8 @@ const AdimPage = () => {
               <div className={styles.totalUser}>
                 <div className={styles.totalUserHead}>
                   <div className={styles.imgs}>
-                    <img src="https://cdn-icons-png.flaticon.com/128/681/681494.png"></img>
-                    <img src="https://cdn-icons-png.flaticon.com/128/3121/3121571.png"></img>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4906/4906266.png"></img>
+                    <img src="https://cdn-icons-png.flaticon.com/128/4876/4876510.png"></img>
                   </div>
                   <div className={styles.total}> Total Users : <h3>100</h3> </div>
                   <div className={styles.newUser}><b>+ Add New User</b></div>
@@ -264,61 +271,18 @@ const AdimPage = () => {
                   <div className={styles.xp}><b>XP</b></div>
                 </div>
                 <div className={styles.list}>
-                  <div className={styles.userList}>
+                 
+                { studentsDetails.map((student) => (
+                    
+                
+                <div className={styles.userList}>
                     <div className={styles.ListNo}><span>1</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
+                    <div className={styles.ListName}><span>{student.name}</span></div>
                     <div className={styles.Liststatus}><span>Strings</span></div>
                     <div className={styles.Listxp}><span>XP</span></div>
                   </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>2</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>3</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>4</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>5</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>5</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>5</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
-
-                  <div className={styles.userList}>
-                    <div className={styles.ListNo}><span>5</span></div>
-                    <div className={styles.ListName}><span>John</span></div>
-                    <div className={styles.Liststatus}><span>Strings</span></div>
-                    <div className={styles.Listxp}><span>XP</span></div>
-                  </div>
+                  ))}
+                 
                 </div>
               </div>
 

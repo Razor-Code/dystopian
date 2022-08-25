@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&family=Ubuntu:wght@500&family=VT323&display=swap');
+
+.body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+}
+
+.sidebar{
+    width: 15%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    font-family: 'ubuntu';
+    position: absolute;
+
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 10px 150px 150px rgba(0, 0, 0, 0.05);
+    
+}
+
+.head{
+    color: #000;
+    height: 70px;
+    width: 100%;
+    border-bottom: grey solid 1px;
+    font-size: 20px;
+    font-weight: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home{
+    height: 50px;
+    width: 100%;
+    color: grey;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: -10px;
+    padding-right: 15px;
+}
+
+.dash{
+    height: 50px;
+    width: 90%;
+    background: #000;
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px
+}
+
+.dash img{
+    padding: 10px;
+}
+
+
+.container{
+    height: 100vh;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    background: #fff;
+}
+
+
+.header{
+    height: 15%;
+    width: 100%;
+    background: #000;
+    font-family: 'ubuntu';
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hello{
+    font-size: 15px;
+}
+
+.welcome{
+    font-size: 50px;
+}
+
+.maindiv{
+    width: 100%;
+    height: 100%;
+    background: rgb(238, 238, 238);
+}
+
+.progressBox{
+    width: 75%;
+    height: 80px;
+    margin-top: 80px;
+    margin-left: 80px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box{
+    height: 100%;
+    width: 18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    font-size: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    margin: 15px;
+    margin-top: -15px;
+    background: rgb(248, 248, 248);
+}
+
+.BoxContents{
+    display: flex;
+    flex-direction: column;
+}
+
+.BoxContents span{
+    color: #000;
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    
+}
+.subMaindiv{
+    height: 550px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    margin-top: 25px;
+}
+
+.subject{
+    width: 15%;
+    height: 550px; 
+    margin-top: 40px;
+    margin-left: 80px;    
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);  
+    color: grey;
+    overflow: hidden;
+    background: #fff;
+    overflow-y: scroll;
+    background: rgb(248, 248, 248);
+}
+
+.sub1:hover,
+.sub1:focus{
+    color: #000;
+}
+
+.sub2:hover,
+.sub2:focus{
+    color: #000;
+}
+
+.sub3:hover,
+.sub3:focus{
+    color: #000;
+}
+
+.sub4:hover,
+.sub4:focus{
+    color: #000;
+}
+
+.sub5:hover,
+.sub5:focus{
+    color: #000;
+}
+
+.sub6:hover{
+    color: #000;
+}
+
+.sub7:hover,
+.sub7:focus{
+    color: #000;
+}
+
+.sub8:hover,
+.sub8:focus{
+    color: #000;
+}
+
+.sub9:hover,
+.sub9:focus{
+    color: #000;
+}
+
+
+
+.subject::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.subjectContents{
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -0px;
+    
+}
+
+.subjectContents div{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+    
+}
+
+.subjectContents div img{
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+}
+
+.chapter{
+    width: 40%;
+    height: 550px;
+    background: url("/Chart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 38px;
+    margin-left: 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); 
+}
+
+
+.Dashboard{
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-left: 30px;
+    padding-top: 35px;
+    margin-top: 75px;
+    margin-left: -5px;
+}

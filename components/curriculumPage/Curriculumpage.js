@@ -56,11 +56,13 @@ const Curriculumpage = () => {
         </div>
 
 
-        <div className={styles.prog}>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div>
+        <div className={styles.prog}>Your Progress<div className={styles.progressBar}><div className={styles.progress}>20%</div></div>
 
 
-        </div> <div className={styles.docs}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/684/684872.png" /><a className={styles.docs1} href='/documentation'>Documentation</a></div>
-        <div className={styles.Logout}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/1828/1828479.png" /><div onClick={LogOut} className={styles.docs1}>LogOut</div></div>
+        </div> 
+        <Link href='https://dystopian.tribeplatform.com'><div className={styles.forum} > Forum</div></Link>
+        <div className={styles.docs}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/3672/3672470.png" /><a className={styles.docs1} href='/documentation'>Documentation</a></div>
+        <div className={styles.Logout}><img className={styles.img} src="https://cdn-icons-png.flaticon.com/128/5542/5542821.png" /><div onClick={LogOut} className={styles.docs1}>LogOut</div></div>
       </div>
       <div className={styles.main}>
         <div className={styles.Container}>
@@ -70,7 +72,7 @@ const Curriculumpage = () => {
 
             <div className={styles.list}>
               <div className={styles.card}><h2>Chapter 1 <br /> <div className={styles.place}>Cyber city </div></h2> <div> I/O Statements</div>
-                <Link href="/"><div className={styles.button}>Level 1</div></Link></div>
+                <Link href="/play"><div className={styles.button}>Level 1</div></Link></div>
 
               <div className={styles.card}><h2>Chapter 2 <br /> <div className={styles.place}>Warped City </div></h2> <div> Keywords and Variables</div>
                 <div className={styles.button}>Level 2</div></div>
@@ -120,10 +122,9 @@ const Curriculumpage = () => {
 
           <div className={styles.XP}>
             <div className={styles.XP1}>
-              <h2 className={styles.XPHead}>Dashboard <img src="https://cdn-icons-png.flaticon.com/128/471/471713.png"></img></h2>
+              <h2 className={styles.XPHead}>Leaderboard </h2>
 
-              <img src=""></img>
-              <img src=""></img>
+              <Link href="/dashboard" className={styles.dash}><div className={styles.dashboardbutton}>View DashBoard</div></Link>
             </div>
             <div className={styles.XP2}>
 
