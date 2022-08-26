@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+.body {
+    background: #000;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.Nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 10px 60px;
+    background: linear-gradient(90deg, #171941, #2dfbfd);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+
+.head {
+    position: relative;
+    width: 400px;
+    font-weight: 700;
+    color: #21ebff;
+    text-decoration: none;
+    font-size: 2em;
+    height: 75px;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+    transition: 0.6s;
+    margin-bottom: 20px;
+}
+
+
+.xpName img {
+    width: 32px;
+    height: 32px;
+    margin-left: 2;
+}
+
+.list1 {
+    padding-left: 0px;
+    font-size: 1.3em;
+    border: #fff;
+    border-radius: 15px;
+    transition: 0s;
+}
+
+
+.Nav ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Ubuntu, sans-serif;
+}
+
+.list2 {
+    padding-right: 200px;
+}
+
+.Nav ul li {
+    position: relative;
+    list-style: none;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    font-family: vt323, monospace;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 10px;
+}
+
+.progressBar {
+    position: relative;
+    height: 40px;
+    width: 700px;
+    background: #000;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    margin-right: 50px;
+}
+
+.prog {
+    margin-left: -40px;
+}
+
+.img {
+    height: 32px;
+    width: 32px;
+}
+
+.progress {
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(90deg, #000046, #1cb5e0);
+    border-radius: 50px;
+    justify-content: center;
+    font-size: 25px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.XPimg {
+    height: 32px;
+    width: 32px;
+    margin-top: -10px;
+}
+
+.xpInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.Nav ul li a {
+    position: relative;
+    margin: 0 8px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.6s;
+}
+
+
+.docs {
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 10px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -80px;
+
+}
+
+.docs1 {
+    align-items: center;
+    padding-left: 5px;
+}
+
+.docs:hover {
+    font-size: 1.5em;
+    transition: 0.6s;
+    color: #fff;
+}
+
+.Logout {
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 10px;
+    margin-left: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logout:hover {
+    font-size: 1.5em;
+    transition: 0.6s;
+    color: #fff;
+}
+
+.body1 {
+    margin-top: 95px;
+    display: flex;
+    height: 100%;
+    background: #000;
+    width: 100%;
+}
+
+.sidebar {
+    background: #424549;
+    height: 100%;
+    width: 5%;
+    border-right: 1px solid grey;
+}
+
+.sidebar1 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.sidebar1 img {
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.sidebar2 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 300px
+
+}
+
+.sidebar2 img {
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+
+.sidebar_item{
+    align-items: center;
+    
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    justify-content: space-between;
+}
+
+
+.main {
+    background: #000;
+    width: 95%;
+    max-height: 85vh;
+    height: 100%;
+
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user {
+    background: #000;
+    height: 55vh;
+    width: 100%;
+    color: #fff;
+    padding: 2px;
+    display: flex;
+    padding: 20px;
+    border-radius: 15px;
+    align-items: center;
+
+}
+
+
+.user_info{
+    height: 30vh;
+    width: 100%;
+    color: #fff;
+    background: #000;
+    margin: 15px;
+}
+
+.h2 {
+    font-weight: bold;
+    padding-left: 10px;
+    margin-top: 0px;
+}
+
+.userHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    display: flex;
+    border-top: #fff solid 1;
+}
+
+.userdiv{
+    height: 100%;
+    width: 70%;
+    margin-top: 0px;
+    margin-right: 15px;
+    border: #fff solid 1px;
+    padding: 10px;
+    margin-top: 0px;
+    border-radius: 15px;
+}
+
+.list{
+    width: 100%;
+    height: 388px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.list::-webkit-scrollbar{
+    display: none;
+}
+
+.userList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0px;
+    display: flex;
+}
+
+.userNo {
+    height: 100%;
+    width: 8%;
+    padding-left: 20px;
+}
+
+
+.userName {
+    height: 100%;
+    width: 42%;
+    padding-left: 20px;
+}
+
+.status {
+    height: 100%;
+    width: 30%;
+    padding-left: 20px;
+}
+
+.xp {
+    width: 20%;
+    padding-left: 20px;
+}
+
+
+.ListNo {
+    height: 100%;
+    width: 8%;
+
+    background: #424549;
+    padding: 15px;
+    padding-left: 20px;
+}
+
+
+.ListName {
+    height: 100%;
+    width: 42%;
+
+    background: #424549;
+    padding: 15px;
+    padding-left: 20px;
+    margin-left: 5px;
+}
+
+.Liststatus {
+    height: 100%;
+    width: 30%;
+    padding: 15px;
+    padding-left: 20px;
+    background: #424549;
+    margin-left: 5px;
+}
+
+.Listxp {
+    background: #424549;
+
+    width: 20%;
+    padding: 15px;
+    padding-left: 20px;
+    margin-left: 5px;
+}
+
+.Box {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;  
+    padding-left: 20px;
+
+}
+
+.totalUser {
+    width: 25%;
+    height: 100%;
+    font-family: Ubuntu, sans-serif;
+    font-size: 20px;
+    border: #fff solid 1px;
+    color: grey;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    border-radius: 15px;
+}
+
+.newUser{
+    margin-top: -30px;
+}
+
+
+.totalUser h3 {
+    font-size: 2em;
+    font-family: 'ubut', sans-serif;
+    color: #fff;
+    margin-top: 0px;
+   
+}
+
+
+.total {
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.newUser {
+    font-family: Ubuntu;
+    color: #1cb5e0;
+    padding-top: 10px;
+    border-top: #fff solid 1px;
+}
+
+.imgs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgs img {
+    height: 80px;
+    width: 80px;
+}
+
+.Graph {
+    border: #fff solid 1px;
+    padding: 10px;
+    width: 30%;
+    height: 100%;
+    color: #fff;
+    border-radius: 15px;
+    margin-top: 0px;
+}
+
+.GraphHead {
+    color: #fff;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.GraphHead span {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GraphHead span img {
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+}
+
+
+.input {
+    width: 240px;
+    color: #000;
+    height: 35px;
+    background: #fff;
+    border: 0px;
+    outline: none;
+    box-shadow: inset 0 0 8px #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    padding-left: 8px;
+
+
+}
+
+.addUser {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.submit {
+    width: 20%;
+    height: 35px;
+    background: #21ebff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif, Ubuntu;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 0.05px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    margin-left: 10px;
+}
+
+
+
+.submit:hover {
+    background: #21ebff;
+    color: #fff;
+    box-shadow: 0 0 7px #21ebff;
+    transition-delay: 0s;
+    font-size: 22px;
+
+}
+
+.guilds1{
+    color: #fff;
+    font-size: 1.9em;
+    padding: 10px;
+    font-family: 'ubut', sans-serif;
+    font-weight: 700;
+}
+
+.guilds1:active,
+.guilds1:focus,
+.guilds1:hover{
+    color: blue;
+    transition-delay: 0s;
+}
+
+.Guildinfo{
+    height: 100%;
+    width: 25%;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 15px;
+    padding-left: 15px;
+    font-family: 'ubuntu';
+    margin-right: 15px;
+}
+
+.Guildinfo h1{
+    color: #21ebff;
+    font-size: 38px;
+}
+
+.Navlist{
+    display: flex;
+    color: #fff;
+    justify-content: space-evenly;
+}
+
+.list1{
+    margin-left: 1000px;
+}
+
+.forum{
+    height: 35px;
+    width: 150px;
+    color: #000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center; 
+}
+
+.logout{
+    margin-left: 50px;
+    font-size: 30px;
+    font-family: 'ubuntu';
+}
+
+.logout:hover{
+    font-size: 32px;
+    transition: 0.6s;
+}
+
+.Guildname {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+    font-family: ubuntu;
+    font-size: 1.1em;
+}
+
+.Guildname span{
+    font-size: 30px;
+    padding-left: 10px;
+    font-family: ubuntu;
+}
+
+.Div3{
+    height: 100%;
+    width: 25%;
+    color: #fff;
+    border: #fff solid 1px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 15px;
+}
+
+.XP2{
+    padding: 20px;
+    width: 100%;
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    overflow: hidden;
+    overflow-y: scroll;   
+}
+
+.XP2::-webkit-scrollbar{
+    display: none;
+}
+
+.xpItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-family: Ubuntu, sans-serif;
+    padding-left: 5px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.xpName{
+    color: red;
+    font-size: 1.2em;
+    padding-right: 30px;
+}
+
+.xpItem div{
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.userxp{
+    color: grey;
+    
+}
+
+.head{
+    font-size: 1.5rem;
+    font-family: ubuntu;
+    color: #fff;
+}
+
+
+.Div4{
+    height: 100%;
+    width: 25%;
+    color: #fff;
+    border: #fff solid 1px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.divhead{
+    background: #1cb5e0;
+    color: #fff;
+    width: 100%;
+    height: 20%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+.divbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+    color: #fff;
+    font-family: 'ubuntu';
+    align-items: center;
+    font-size: 20px;
+}
+
+.divbody img{
+    height: 80px;
+    width: 80px;
+}
+
+.upload{
+    width: 100px;
+    height: 40px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: #fff;
+    background: #21ebff;
+}

@@ -7,20 +7,13 @@ export default function Documentation1() {
     return(
         <div className={styles.body}>
         <div className={styles.Nav}>
-   
-        <ul className={styles.list}>
-            <h2 className={styles.head} ><Logo /></h2>
-            <li className={styles.list1}><img className={styles.img1} src="https://cdn-icons-png.flaticon.com/128/1061/1061427.png"></img><a href='/documentation'>Documentation</a></li>
-        </ul>
-        <ul className={styles.list2}>
-            <li><img className={styles.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png"></img><a id="Login" onClick= {() => isOpenDispatch(
-                {component: 'login'}
-            )}>Login</a></li> 
-            <li><img className={styles.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"></img><a onClick = {() => isOpenDispatch( 
-                {component: 'register'}
-             )}>Register</a></li>
-        </ul>
-        </div>
+        <div> <ul className={styles.list}>
+           <li className={styles.listitem}> Name : Dystopian  |</li>
+           <li className={styles.listitem}> Stage : I</li>
+         </ul> </div>
+         <div>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div></div>
+       </div>
+       <div className={styles.content}></div>
         <div className={styles.container}>
         <div className={styles.docs}>
         <h2>Introduction To PYTHON</h2>

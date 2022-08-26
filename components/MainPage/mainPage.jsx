@@ -1,110 +1,323 @@
 import style from './mainPage.module.css';
 import Logo from '../home/logo';
-import { useReducer } from 'react';
+import { useRef, useReducer, useState, useEffect } from 'react';
+import app, { db } from '../../Firebase';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { motion } from 'framer-motion';
+
 
 function reducer(state, action) {
-    switch (action.component) {
-        case 'register':    
-            return { register: !state.register , login: false };
-        case 'login':
-            return { login: !state.login , register: false };
-        default:
-            return state;
-    }
+  switch (action.component) {
+    case 'register':
+      return { register: !state.register, login: false };
+    case 'login':
+      return { login: !state.login, register: false };
+    default:
+      return state;
+  }
 }
+
+
+const scaleVariants = {
+  whileInView: {
+    scale: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      ease: 'easeInOut',
+    },
+  },
+};
 
 export default function MainPage() {
 
-    const [isOpen, isOpenDispatch] = useReducer(reducer, {register: false, login: false});
 
 
-return(
-    
+
+  // const db = getFirestore(app);
+  // const [isOpen, isOpenDispatch] = useReducer(reducer, {register: false, login: false});
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [name, setName] = useState('');
+  // const [error, setError] = useState('');
+
+  // const handleRegister = (e) => {
+  //   e.preventDefault();
+  //   createUserWithEmailAndPassword(email, password)
+  //     .then(cred => {
+  //       return db.collection('users').doc(cred.user.uid).set({
+  //         name: name,
+  //         email: email,
+  //         password: password,
+  //         uid: cred.user.uid
+  //       })
+  //     }).then(() => {
+  //       dispatch({ component: 'register', type: 'register' });
+  //     }).catch(error => {
+  //       setError(error.message);
+  //       alert(error.message);
+  //     }
+  //     );
+  // }
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   signInWithEmailAndPassword(email, password)
+
+  //     .then(cred => {
+  //       return db.collection('users').doc(cred.user.uid).get()
+  //     }).then(doc => {
+  //       if (doc.exists) {
+  //         dispatch({ component: 'login', type: 'login' });
+  //       } else {
+  //         setError('User not found');
+  //       }
+  //     }).catch(error => {
+  //       setError(error.message);
+  //     }
+  //     );
+  // }
+
+
+
+  const [isOpen, isOpenDispatch] = useReducer(reducer, { register: false, login: false });
+  const auth = getAuth(app);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+  const signIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+
+        alert(" successfully Signed in");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(error);
+        alert(errorCode);
+        // const errorMessage = error.message;
+      });
+  }
+
+
+  const signUp = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        await updateProfile(user, { displayName: username }).then(
+          () => {
+            console.log("User profile updated");
+          }
+        )
+
+        if (role.toLocaleLowerCase() === 'admin') {
+          await setDoc(doc(db, 'users', user.uid), {
+            uid: user.uid,
+            name: username,
+            email: email,
+            role: "admin",
+            guilds: [],
+            xp: 0,
+          })
+        } else {
+          await setDoc(doc(db, 'users', user.uid), {
+            uid: user.uid,
+            name: username,
+            email: email,
+            role: "user",
+            xp: 0,
+          })
+        }
+
+        console.log(user.Role);
+        console.log(user);
+        console.log(user.displayName);
+        alert("successfully created account")
+        // ...
+      })
+      .catch((error) => {
+
+        const errorCode = error.code;
+        console.log(error);
+        // const errorMessage = error.message;
+        alert(errorCode);
+      });
+  }
+
+
+  const LogOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
+
+
+  let slider = document.querySelector('.slide');
+  let index = 0;
+  function next() {
+    slider[index].classList.remove('active')
+    index = (index + 1) % slider.length
+    slider[index].classList.add('active')
+  }
+
+
+
+
+  return (
     <div className={style.body}>
-    <embed src="/cyberpunk 2077 music.mp3" loop={true} autostart="true" width="2" height="0"/>
-    <div className={style.Nav}>
-   
-    <ul className={style.list}>
-        <h2 className={style.head} ><Logo /></h2>
-        <li className={style.list1}><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1061/1061427.png"></img><a href='/documentation'>Documentation</a></li>
-    </ul>
-    <ul className={style.list2}>
-        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png"></img><a id="Login" onClick= {() => isOpenDispatch(
-            {component: 'login'}
-        )}>Login</a></li> 
-        <li><img className={style.img1} src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"></img><a onClick = {() => isOpenDispatch( 
-            {component: 'register'}
-         )}>Register</a></li>
-    </ul>
-   {isOpen.login && (<>
-    <div className={style.arrow}></div>
-    
-    <div className={style.form}>
-    <form>
-        <div>
-            <div className={style.label}>Username</div>
-            <input className={style.input} type="text" placeholder="username" />
+      <div className={style.Nav}>
+        <ul className={style.list}>
+          <h2 className={style.head}>
+            <Logo />
+          </h2>
+
+        </ul>
+        <ul className={style.list2}>
+          <motion.div
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.5, delayChildren: 0.8 }}><li>
+              <img
+                className={style.img1}
+                src="https://cdn-icons-png.flaticon.com/128/1177/1177428.png"
+              ></img>
+              <a id="Login" onClick={() => isOpenDispatch({ component: "login" })}>
+                Login
+              </a>
+            </li></motion.div>
+          <motion.div
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.5, delayChildren: 0.5 }}><li>
+              <img
+                className={style.img1}
+                src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
+              ></img>
+              <a onClick={() => isOpenDispatch({ component: "register" })}>
+                Register
+              </a>
+            </li></motion.div>
+        </ul>
+        {isOpen.login && (
+          <>
+            <div className={style.arrow}></div>
+
+            <div className={style.form}>
+              <form>
+                <div>
+                  <div className={style.label}>Email</div>
+                  <input
+                    className={style.input}
+                    type="text"
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                  />
+                </div>
+                <div>
+                  <div className={style.label}>Password</div>
+                  <input
+                    className={style.input}
+                    type="text"
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="password"
+                  />
+                </div>
+
+                <div>
+                  <div className={style.submit} onClick={signIn}>
+                    {" "}
+                    Login{" "}
+                  </div>
+                </div>
+                <div className={style.lostpass}>
+                  <a href="#">Lost your Password ?</a>
+                </div>
+              </form>
+            </div>
+          </>
+        )}
+
+        {isOpen.register && (
+          <>
+            <div className={style.arrow2}></div>
+
+            <div className={style.form2}>
+              <form>
+                <div>
+                  <div className={style.label2}>Email</div>
+                  <input
+                    className={style.input2}
+                    type={"email"}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email Id"
+                  />
+                </div>
+                <div>
+                  <div className={style.label2}>Password</div>
+                  <input
+                    className={style.input2}
+                    type="text"
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="password"
+                  />
+                </div>
+                <div>
+                  <div className={style.label}>UserName</div>
+                  <input
+                    className={style.input}
+                    type="text"
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="username"
+                  />
+                </div>
+
+                <div>
+                  <div className={style.label}>Role</div>
+                  <input
+                    className={style.input}
+                    type="text"
+                    onChange={(e) => setRole(e.target.value)}
+                    placeholder="Admin or User"
+                  />
+                </div>
+
+                <div>
+                  <div className={style.submit2} onClick={signUp}>
+                    Submit
+                  </div>
+                </div>
+              </form>
+            </div>
+          </>
+        )}
+      </div>
+
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.6 }} >
+        <h1 className={style.title}>DYSTOPIAN</h1>
+        <h3 className={style.info}>Register and Login to Start your Python journy with Dystopian</h3></motion.div>
+      <div className={style.Button}>Preview</div>
+      <div className={style.seg}>
+        <div className={style.slides}>
+          <div className={style.slide}><a className={style.slideImg} href=''></a></div>
+          <div className={style.slide}><a className={style.slideImg} href=''></a></div>
+          <div className={style.slide}><a className={style.slideImg} href=''></a></div>
+          <div className={style.slide}><a className={style.slideImg} href=''></a></div>
+
         </div>
-        <div>
-        <div className={style.label}>Password</div> 
-        <input className={style.input} type="text" placeholder="password" />
-    </div>
-    
-    <div>
 
-        <input className={style.submit} type="submit" value="Login" />
-    </div>
-    <div className={style.lostpass}>
-        <a href="#">Lost your Password ?</a>
-    </div>
+      </div>
 
-</form>
     </div>
-    </>
-   )}
-
-   {isOpen.register && (<>
-    <div className={style.arrow2}></div>
-    
-    <div className={style.form2}>
-    <form>
-        <div>
-            <div className={style.label2}>Username</div>
-            <input className={style.input2} type="text" placeholder="username" />
-        </div>
-        <div>
-        <div className={style.label2}>Email</div>
-        <input className={style.input2} type="text" placeholder="Email Id" />
-    </div>
-        <div>
-        <div className={style.label2}>Password</div> 
-        <input className={style.input2} type="text" placeholder="password" />
-    </div>
-    
-    <div>
-
-        <input className={style.submit2} type="submit" value="Register" />
-    </div>
-
-</form>
-    </div>
-    </>
-   )}
-    </div>
-    <div className={style.wrapper}>
-    <a className={style.cta} href="/Game">
-      <span>START GAME</span>
-      <span>
-        <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-          <g id="arrow" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-            <path className={style.one} d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="#FFFFFF"></path>
-            <path className={style.two} d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="#FFFFFF"></path>
-            <path className={style.three} d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z" fill="#FFFFFF"></path>
-          </g>
-        </svg>
-      </span> 
-    </a>
-  </div>
-    </div>
-) }
+  );
+}
 

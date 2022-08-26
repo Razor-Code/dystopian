@@ -4,6 +4,14 @@ import Link from 'next/link';
 export default function Documentation7() {
     return(
         <div className={styles.body}>
+        <div className={styles.Nav}>
+        <div> <ul className={styles.list}>
+           <li className={styles.listitem}> Name : Dystopian  |</li>
+           <li className={styles.listitem}> Stage : I</li>
+         </ul> </div>
+         <div>Your Progress<div className={styles.progressBar}><div className={styles.progress}>10%</div></div></div>
+       </div>
+  
         <div className={styles.container}>
         <div className={styles.docs}>
         

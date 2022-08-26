@@ -1,21 +1,25 @@
 .section{
     height: 100vh;
     display: flex;
+    background: url("/Gif1.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(3px);
-    
 }
 
 .box{
-    position: relative;
+    position: absolute;
     max-width: 600px;
     padding: 50px;
-    background: rgba(0,0,0,.7);
-    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    background: rgba(54, 54, 54, 0.7);
+    box-shadow: 0 5px 15px rgba(138, 137, 137, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
+    backdrop-filter: blur(3px);
     justify-content: center;
 }
 
