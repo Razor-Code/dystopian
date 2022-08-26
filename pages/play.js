@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import DialogueBox from "../components/DialogueBox/dialogueBox";
 import App from '../engine/App';
 
 export default function() {

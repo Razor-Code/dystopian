@@ -296,6 +296,7 @@ kbd{
   background-color: #111;
   position: absolute;
   border-right: 20px solid #000;
+  animation : slide 0.5s ease-in-out;
 }
 
 .panels {
@@ -308,6 +309,17 @@ kbd{
   display: none;
 }
 
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 .question-heading {
   font-weight: bold;
@@ -338,7 +350,6 @@ button.option{
   margin: 0 15px;
   color: #fff;
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 2px;
   overflow: hidden;
   border: 5px solid transparent;

@@ -3,15 +3,53 @@ import Game from "./Game";
 import SpriteSheets from "./data/SpriteSheets";
 import SpriteSheetManager from "./SpriteSheetManager";
 import SpriteSheet from "./SpriteSheet";
-// import './App.module.css'
+import DialogueBox from "../components/DialogueBox/dialogueBox";
 
 
 function App() {
+  const dialogues = {
+    0: {
+      name: "Alita",
+      speaker: "/speakers/alita.jpeg",
+      text: "I see so you're the one creating the glitches in this lab!!"
+    },
+    1: {
+      name: "Xenobug",
+      speaker: "/speakers/unknown.jpg",
+      text: "Affirmative! I have destroyed your entire lab and now I will destroy you!"
+    },
+    2: {
+      name: "Alita",
+      speaker: "/speakers/alita.jpeg",
+      text: "I won't let you do that to my planet! I know how to correct your corruption. You are a simple print bug after all!"
+    }
+  }
+
+
   var canvasRef = useRef();
   var gameRef = useRef();
 
 
   const [displayQuestion, setDisplayQuestion] = useState(false);
+  const [dialogue, setDialogue] = useState(0);
+  
+  const max = 3;
+
+  const i = 0;
+  useEffect(() => {
+   
+    
+    setDialogue(i);
+    setTimeout(() => {  
+      setDialogue(i+1);
+      }, 3000); 
+    
+    setTimeout(() => {
+      setDialogue(i+2);
+      }, 6000);
+  }, [])
+
+  
 
   useEffect(() => {
     var ssm = new SpriteSheetManager();
@@ -107,16 +145,17 @@ function App() {
 
   return (
     <div className="flex flex-col md:flex-wrap md:flex-row">    
-        <div className={displayQuestion ? "popup-question" : "hide-question"}>
-          <p className="question-heading">QUESTION: </p>
-          <p className="question-description">What is the function used to print a statement in Python?</p>
-          <div className="question-options">
-            <button className="option">A. println()</button>
-            <button className="option">B. Print()</button>
-            <button className="option">C. print()</button>
-          </div> 
-        </div>
         <canvas ref={canvasRef} />
+          <DialogueBox image={dialogues[0].speaker} text={dialogues[dialogue].text} />
+          <div className={displayQuestion ? "popup-question" : "hide-question"}>
+            <p className="question-heading">QUESTION: </p>
+            <p className="question-description">What is the function used to print a statement in Python?</p>
+            <div className="question-options">
+              <button className="option">A. println()</button>
+              <button className="option">B. Print()</button>
+              <button className="option">C. print()</button>
+            </div> 
+          </div>
         <div className='controls'>
           <kbd>W</kbd>
           <kbd>A</kbd>
