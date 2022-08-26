@@ -1,35 +1,49 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import Curriculumpage from '../components/curriculumPage/Curriculumpage';
-import GetStarted from '../components/GetStarted/GetStarted';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import MainPage from '../components/MainPage/mainPage';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import app from '../Firebase';
+import app, { auth, db } from '../Firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { useRouter } from 'next/router';
+import Logo from '../components/home/logo';
 
 
-export default function mainpage (){
+export default function mainpage() {
 
-const [user, setUser] = useState('')
-const [executer, setExecuter] = useState(false)
+  const [user, setUser] = useState('')
+  const [executed, setExecuted] = useState(false)
+  const [role, setRole] = useState('')
 
-useEffect(() => {
-  const auth = getAuth(app)
-  onAuthStateChanged(auth, user => {
-    setExecuter(true)
-    if (user) {
-       setUser(user)
-    } 
-  }
-)}, [])
+  const router = useRouter()
 
-return (
+  useEffect(() => {
+    onAuthStateChanged(auth, async user => {
+      if (user) {
+        let result = await getDoc(doc(db, 'users', user.uid))
+
+        if (result.exists()) {
+          if (result.data().role == "admin") {
+            router.push('/AdminPage')
+          } else {
+            router.replace('/Curriculumpage')
+          }
+        } else {
+          console.log("please reload the page");
+router.replace('/AdminPage')
+
+        }
+      } else {
+        setExecuted(true)
+      }
+    }
+    )
+  }, [])
+
+  return (
     <div>
-    {
-      (executer && user) && <Curriculumpage/>
-    }
-    {
-      (executer && !user) && <MainPage/>
-    }
+      {
+        executed ? <MainPage /> : (<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}><Logo /></div>)
+      }
     </div>
   )
 }

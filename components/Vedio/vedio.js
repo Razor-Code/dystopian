@@ -4,7 +4,7 @@ import styles from "./vedio.module.css"
 const vedio = () => {
   return (
     <div className={styles.body}>
-    <video src="/vedio.mp4" autoplay loop mutd></video>
+    <video src="/video.mp4" autoplay loop mutd></video>
 </div>
   )
 }

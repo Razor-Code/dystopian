@@ -1,29 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+
 .body{
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
     color: #fff;
-    background: url('/bgwall.jpg');
+    background: #fff;
     background-size: contain;
     align-items: center;
     justify-content: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(5px);
+}
+
+.main{
+    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .Container{
     position : relative;
-    width: 100%;
+    width: 75%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     top: 40px;
-    margin-top: 20px;
+    margin-top: 88px;
+    margin-left: 5px;
 }
 
 .LogIn{
@@ -39,87 +44,160 @@
     color: #21ebff;  
 }
 
+
 .heading{
     height: 80px;
-    margin-top: 0px;
     width: 80%;
-    font-family: VT323, monospace;
-    letter-spacing: 2px;
-    font-size: 65px;
+    font-family: 'ubuntu';
+    font-size: 45px;
     align-items: center;
     text-align: center;
     align-items: center;
+    padding-top: 10px;
     justify-content: center;
-    background: rgba(0,0,0,.7);
-    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.5);
+    color: #000;
     margin: 5px;
     margin-bottom: 15px;
+    background: rgb(249, 249, 249);;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
+.XP1{
+    display: flex;
+    align-items: center;
+}
+
+.dashboardbutton{
+    
+    font-size: 18px;
+    border: #000 solid 1px;
+    color: #fff;
+    background: #000;
+    margin-top: -15px;
+    margin-left: 55px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+}
+
+
 .box{
-    width: 80%;
-    background: rgba(0,0,0,.7);
-    box-shadow: 0 5px 15px rgba(10, 10, 10, 0.5);
+    width: 100%;
+    background: #000;
     margin-bottom: 50px;
-    padding: 10px;
+    padding: 0px;
+    margin-left: 20px;
+    padding-bottom: 20px;
+    background: #FFFFFF;
+    
 }
 
 
 .docs{
-    border: #000 solid 2px;
-    border-radius: 15px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: 'ubut', sans-serif;
-    padding: 10px;
-    margin-left: -10px;
+    padding: 7px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -25px;
+}
+
+.docs1{
+    align-items: center;
+    padding-left: 0px;
 }
 
 .docs:hover{
-    font-size: 1.7em;
+    font-size: 1.5em;
     transition: 0.6s;
-    border: #000 solid 3px;
+    color: #fff;
+}
+
+
+.forum{
+    width: 104px;
+    height: 32px;
+    background: #fff;
+    color: #000;
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.forum:hover{
+    width: 108px;
+    height: 34px;
+    font-size: 24px;
+    transition: 0.6s;
+}
+
+
+.Logout{
+    font-size: 1.3em;
+    font-family: 'ubut', sans-serif;
+    padding: 8px;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Logout:hover {
+    font-size: 1.5em;
+    transition: 0.6s;
     color: #fff;
 }
 
 .list{
-    margin-top: 20px;
+    margin-top: 30px;
     text-decoration: none;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-family: Ubuntu, sans-serif;
-    font-size: 1.3em;
+    font-size: 1.1em;
     border: #000;
     border-radius: 15px;
     transition: 0s;
-    
-
 }
 
+
+.listitem{
+    margin-left: -60px;
+}
+
+
 .card{
-    max-height: 400px;
-    width: 300px;
+    height: 200px;
+    width: 20%;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: rgb(249, 249, 249);
     color: #000;
     align-items: center;
     justify-content: center;
-
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
+
 
 .card h2{
     font-family: VT323, monospace;
     font-size: 1.5em;
     letter-spacing: 2px;
     text-align: center;
-    
 }
+
 
 .card h2 h3{
-
     font-size: 0.8em;
 }
+
 
 .button{
     height: 38px;
@@ -135,23 +213,31 @@
     margin-bottom: 10px;
 }
 
+.button:hover{
+    font-size: 1.5em;
+}
+
 
 .Nav{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 10%;
+    height: 11%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
     padding: 10px 60px;
-    background: linear-gradient(90deg ,#171941, #2dfbfd);
+    background: #000;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
-    z-index: 1;
-    
+    z-index: 1;    
 }
+
+.img{
+    margin-right: 10px;
+}
+
 
 .head{
     position: relative;
@@ -164,11 +250,17 @@
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
+    font-family: 'ubuntu';
     letter-spacing: 2px;
     transition: 0.6s;
-    margin-bottom: 20px;
+    margin-bottom: 20px;   
+}
 
-   
+
+.xpName img{
+    width: 32px;
+    height: 32px;
+    margin-left: 2;
 }
 
 .list1{
@@ -178,6 +270,7 @@
     border-radius: 15px;
     transition: 0s;
 }
+
 
 .Nav ul{
     position: relative;
@@ -210,22 +303,45 @@
     background: #fff;
     border-radius: 50px;
     border: 1px solid #fff;
+    margin-right: 50px;
+    margin-top: 8px;
+    
+}
+
+.prog{
+    margin-left: 20px;
+
+}
+
+.img{
+    height: 32px;
+    width: 32px;
 }
 
 .progress{
     height: 100%;
-    width: 70%;
+    width: 20%;
     background: linear-gradient(90deg ,#000046, #1cb5e0);
     border-radius: 50px;
     justify-content: center;
+    padding-top: 4px;
     font-size: 25px;
+    
     align-items: center;
     padding-left: 30px;
 }
 
-.img1{
+.XPimg{
     height: 32px;
     width: 32px;
+    margin-top: -10px;
+}
+
+.xpInfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
 }
 
 .Nav ul li a{
@@ -236,4 +352,148 @@
     letter-spacing: 2px;
     font-weight: 500;
     transition: 0.6s;
+}
+
+
+.Dashboard{
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    margin-left: 30px;
+    padding-top: 35px;
+    
+}
+
+.XP{
+    width: 100%;
+    height: 40%;
+    background: #fff;
+    margin-top: 100px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(249, 249, 249);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.XP1{
+    width: 100%;
+    height: 27%;
+    background: rgba(206, 205, 205, 0.7);
+    box-shadow: 0 5px 15px rgba(209, 208, 208, 0.5);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px;
+    
+}
+
+.XP2{
+    padding: 20px;
+    width: 100%;
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    overflow: hidden;
+    overflow-y: scroll;   
+}
+
+.XP2::-webkit-scrollbar{
+    display: none;
+}
+
+.xpItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-family: Ubuntu, sans-serif;
+    padding-left: 5px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.xpName{
+    color: red;
+    font-size: 1em;
+    padding-right: 30px;
+}
+
+.xpItem div{
+    margin-left: 10px;
+    font-size: 1.1rem;
+}
+
+.userxp{
+    color: grey;
+}
+
+.XPHead{
+    padding-top: 10px;
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-family: 'VT323', sans-serif;
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-top: 0px;
+    color: #000;
+    padding-top: -10px;
+    display: flex;
+    font-size:1.8em;
+    align-items: center;
+
+}
+
+.XPHead img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-top: 0px;
+    margin-left: 15px;
+}
+
+.Dash{
+    width: 100%;
+    height: 60%;
+    background: rgb(249, 249, 249);
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.DashXP1{
+    width: 100%;
+    height: 18%;
+    padding: 15px;
+    background: rgba(206, 205, 205, 0.7);
+    box-shadow: 0 5px 15px rgba(209, 208, 208, 0.5);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+   
+}
+
+
+
+.XPHead1{
+    padding-top: 10px;
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-family: 'VT323', sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 0px;
+    color: #000;
+    padding-top: -10px;
+    display: flex;
+    font-size:2em;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.XPHead1 span{
+    color: blue;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 0.7em;
 }

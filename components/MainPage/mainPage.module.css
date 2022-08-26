@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .wrapper {
     
@@ -158,7 +159,8 @@ path.two {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Ubuntu, sans-serif;
+    font-size: 1.2rem;
+    font-family: Oswald, sans-serif;
 }
 
 .list2{
@@ -202,7 +204,7 @@ path.two {
     position: absolute;
     border-bottom: 20px solid #21ebff;
     right: 440px;
-    top: 64px;
+    top: 80px;
 }
 
 .arrow2{
@@ -213,7 +215,7 @@ path.two {
     position: absolute;
     border-bottom: 20px solid #21ebff;
     right: 280px;
-    top: 64px;
+    top: 80px;
 }
 
 .form{
@@ -222,7 +224,7 @@ path.two {
     width: 300px;
     background : #fff;
     right: 305px;
-    top: 84px;
+    top: 100px;
     border-radius : 3px;
     border: 5px solid #21ebff;
 }
@@ -233,7 +235,7 @@ path.two {
     width: 300px;
     background : #fff;
     right: 140px;
-    top: 84px;
+    top: 100px;
     border-radius : 3px;
     border: 5px solid #21ebff;
 }
@@ -302,6 +304,10 @@ path.two {
     outline: none;
     border-radius: 5px;
     letter-spacing: 0.05px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
 }
 
 .submit2{
@@ -317,6 +323,8 @@ path.two {
     border-radius: 5px;
     letter-spacing: 0.05px;
     margin-top: 20px;
+    text-align: center;
+    padding-top: 4px;
 }
 
 .submit:hover{
@@ -368,7 +376,7 @@ path.two {
     margin-left: 100px;
     background: rgba(54, 54, 54, 0.7);
     box-shadow: 0 5px 15px rgba(138, 137, 137, 0.5);
-    margin-left: -0px;
+    margin-left: -80px;
     justify-content: center;
     align-items: center;
     margin-top: 70px;
@@ -378,12 +386,13 @@ path.two {
     height: 300px;
     width: 700px;
     background: #fff;
-    margin: 20px;   
+    margin: 20px; 
+    border-radius: 15px;  
 }
 
 .slide:hover{
-    width: 900px;
-    height: 400px;
+    width: 820px;
+    height: 360px;
     transition: 0.9s;
     cursor: pointer;
 }
