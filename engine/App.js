@@ -5,6 +5,7 @@ import SpriteSheetManager from "./SpriteSheetManager";
 import SpriteSheet from "./SpriteSheet";
 import DialogueBox from "../components/DialogueBox/dialogueBox";
 
+import Render from "./Render";
 
 import { useSpeechSynthesis } from 'react-speech-kit'
 import { SpeechSynthesisVoice } from 'react-speech-kit'
@@ -50,6 +51,11 @@ function App() {
 
   const i = 0;
 
+  // const render = new Render();
+  // const groundBottomLeft = new Image();
+  // groundBottomLeft.src = "/tiles/ground_bottom_left.png";
+  // render.drawImage(groundBottomLeft, 0, 0);
+
   // if (displayQuestion) {
     useEffect(() => {
    
@@ -57,15 +63,15 @@ function App() {
         setDisplayDialogues(true);
         setDialogue(i);
         
-        speak({ text: dialogues[0].text, voice: voices[1]})
+        speak({ text: dialogues[0].text, voice: voices[2]})
         setTimeout(() => {  
           setDialogue(i+1);
-          speak({ text: dialogues[1].text, voice: voices[2] })
+          speak({ text: dialogues[1].text, voice: voices[1] })
           }, 6000); 
         
         setTimeout(() => {
           setDialogue(i+2);
-          speak({ text: dialogues[2].text, voice: voices[1] })
+          speak({ text: dialogues[2].text, voice: voices[2] })
 
           }, 12000);
 
@@ -203,9 +209,16 @@ function App() {
 const Outcome = (props) => {
   const  color = props.result === "true" ? "#00cafe" : "#ca00fe";
   return (
-    <div class="outcome-box">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4">{props.result === "true" ? "SUCCESS!" : "You made a mistake :["}</h1>
-      <p className="px-5 text-center">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
+    <div class="outcome-box flex flex-col ">
+      <h1 className="heading">{props.result === "true" ? "SUCCESS!" : "You made a mistake :["}</h1>
+      <p className="px-10">
+        Congratulations on successfully completing this lesson! Feel free to stay back or move on to the next one.
+      </p>
+      <p className="sub-heading">Through this level you learnt:</p>
+      <ul>
+        <li>Input Statements</li>
+        <li>Output Statements</li>
+      </ul>
       <button class="proceedBtn" style={{backgroundColor: color}} onClick={() => {props.result === "true" ? Router.replace('/Curriculumpage') : Router.reload(window.location.pathname)}}>{props.result === "true" ? "Move onto next lesson" : "Retry"}</button>
     </div>
   )
