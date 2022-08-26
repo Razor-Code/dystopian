@@ -1,14 +1,15 @@
 .dialogueBox {
   position: absolute;
+  z-index: 1000;
   bottom: 0;
   width: calc(100% - 100px);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   min-height: 125px;
   margin: 25px;
   padding: 25px 50px;
   font-size: 1.2rem;
   word-spacing: 3px;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   /* The clip path makes cut corner effect on the dialogue box */
   /* The first value must be -200% so that the speaker image doesnt get cut off */
   clip-path: polygon(0 -200%, calc(100% - 35px) 0%, 100% 35px, 100% 100%, 35px 100%, 0% calc(100% - 35px));
@@ -21,7 +22,7 @@
   position: absolute;
   top: -30px;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.2); /* should be same as bg color */
+  background-color: rgba(255, 255, 255, 0.4); /* should be same as bg color */
   clip-path: polygon(25px 0%, calc(100% - 25px) 0%, 100% 100%, 0% 100%);
 }
 
@@ -79,7 +80,7 @@
 
 p.speakerName {
   position: absolute;
-  top: -40px;
+  top: -28px;
   color: #00cafe;
   font-weight: 600;
   /* font spacing of 1.12 */

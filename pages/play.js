@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import DialogueBox from "../components/DialogueBox/dialogueBox";
 import App from '../engine/App';
 
 export default function() {
@@ -36,19 +37,7 @@ export default function() {
           {/* <span className="popup-hint">Hint: Xenobugs are often located at the highest level of the hive structure</span> */}
         </div>
       )}
-
-      <div className="panels">
-        <div className="popup-question">
-          <p className="question-heading">QUESTION: </p>
-          <p className="question-description">What is the function used to print a statement in Python?</p>
-          <div className="question-options">
-            <button className="option">A. println()</button>
-            <button className="option">B. Print()</button>
-            <button className="option">C. print()</button>
-          </div> 
-        </div>
-        <App />
-      </div>
+      <App />
     </>
   )
 }

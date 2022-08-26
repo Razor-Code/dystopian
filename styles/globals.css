@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
 
 html,
@@ -287,12 +291,13 @@ kbd{
 }
 
 .popup-question {
-  display: hidden;
   min-width: 30%;
   height: 100vh;
   padding: 30px;
   background-color: #111;
+  position: absolute;
   border-right: 20px solid #000;
+  animation : slide 0.5s ease-in-out;
 }
 
 .panels {
@@ -301,6 +306,22 @@ kbd{
   flex-wrap: wrap;
 }
 
+.hide-question {
+  visibility: hidden;
+  display: none;
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 .question-heading {
   font-weight: bold;
@@ -331,7 +352,6 @@ button.option{
   margin: 0 15px;
   color: #fff;
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 2px;
   overflow: hidden;
   border: 5px solid transparent;
@@ -379,3 +399,36 @@ button.option:after{
   transition-delay: 0.5s;
 } */
 
+media screen and (max-width: 768px) {
+  .panels {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.outcome-box {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%);
+  background-color: #222;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.proceedBtn {
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #00cafe;
+  border-radius: 20px;
+  margin-top: 15px;
+}

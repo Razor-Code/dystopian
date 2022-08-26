@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Camera from "./Camera";
 import Controller from "./Controller";
 import Entity from "./Entity";
@@ -12,7 +13,7 @@ import { getRandomInteger } from "./random";
 import enemyIdle from "../public/sprites/villains/idle/1.png";
 
 export default class Game {
-  constructor(canvas, ctx, ssm) {
+  constructor(canvas, ctx, ssm, setDisplayQuestion) {
     /**
      * @type {HTMLCanvasElement}
      */
@@ -27,6 +28,8 @@ export default class Game {
      * @type {SpriteSheetManager}
      */
     this.ssm = ssm;
+
+    this.setDisplayQuestion = setDisplayQuestion;
 
     this.render = new Render(this);
     this.camera = new Camera(this);
@@ -362,6 +365,9 @@ export default class Game {
       var tile = tileKeys[i];
       var collisionFlag = this.player.tiles[tile];
       var [x, y] = this.convertIndexToCoordinates(tile);
+      if ((x === 19 || x === 20) && y === 5 && y > 4) {
+        this.setDisplayQuestion(true);
+      }
       if (collisionFlag & 1) {
         this.render.drawRect(x, y, 0.05, 1, "#fff");
       }
@@ -373,20 +379,6 @@ export default class Game {
       }
       if (collisionFlag & 8) {
         this.render.drawRect(x, y + 0.95, 1, 0.05, "#fff");
-      }
-      if (collisionFlag & 16) {
-        this.render.drawSprite(
-          enemyIdle.src,
-          this.x -
-            w * 1.55 +
-            (Array.isArray(this.animation.xOffset)
-              ? this.animation.xOffset[this.facing]
-              : this.animation.xOffset) +
-            xOffset,
-          this.y - h * 1.05 + this.animation.yOffset,
-          w * h * 4.3,
-          w * h * 4.3 * 0.875
-        );
       }
     }
 

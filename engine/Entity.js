@@ -22,6 +22,7 @@ export default class Entity extends GameObject {
     if (this.collidesWith(this.game.player)) {
       if (this.game.player.animationName === "attack1") {
         this.direction = this.game.player.facing === 0 ? -1 : 1;
+        this.colliding = true;
 
         this.game.particleSystem.spawnParticles(this.x, this.y, 6, 0.5);
 

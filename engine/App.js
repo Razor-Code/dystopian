@@ -3,11 +3,84 @@ import Game from "./Game";
 import SpriteSheets from "./data/SpriteSheets";
 import SpriteSheetManager from "./SpriteSheetManager";
 import SpriteSheet from "./SpriteSheet";
+import DialogueBox from "../components/DialogueBox/dialogueBox";
+
+
+import { useSpeechSynthesis } from 'react-speech-kit'
+import { SpeechSynthesisVoice } from 'react-speech-kit'
+
+import Router from 'next/router'
 
 function App() {
+  const [value, setvalue] = useState('')
+  const { speak ,voices } = useSpeechSynthesis();
+
+
+  const dialogues = {
+    0: {
+      name: "Alita",
+      speaker: "/speaker/alita.jpeg",
+      text: "I see so you're the one creating the glitches in this lab!!"
+    },
+    1: {
+      name: "Xenobug",
+      speaker: "/speaker/unknown.jpg",
+      text: "Affirmative! I have destroyed your entire lab and now I will destroy you!"
+    },
+    2: {
+      name: "Alita",
+      speaker: "/speaker/alita.jpeg",
+      text: "I won't let you do that to my planet! I know how to correct your corruption. You are a simple print bug after all!"
+    }
+  }
+
+
   var canvasRef = useRef();
   var gameRef = useRef();
 
+
+  const [displayQuestion, setDisplayQuestion] = useState(false);
+  const [displayOutcome, setDisplayOutcome] = useState(false);
+  const [resultValue, setResultValue] = useState(null);
+  const [displayDialogues, setDisplayDialogues] = useState(false);
+  const [displayQuestionPopup, setDisplayQuestionPopup] = useState(false);
+  const [dialogue, setDialogue] = useState(0);
+  
+  const max = 3;
+
+  const i = 0;
+
+  // if (displayQuestion) {
+    useEffect(() => {
+   
+      if (displayQuestion) {
+        setDisplayDialogues(true);
+        setDialogue(i);
+        
+        speak({ text: dialogues[0].text, voice: voices[1]})
+        setTimeout(() => {  
+          setDialogue(i+1);
+          speak({ text: dialogues[1].text, voice: voices[2] })
+          }, 6000); 
+        
+        setTimeout(() => {
+          setDialogue(i+2);
+          speak({ text: dialogues[2].text, voice: voices[1] })
+
+          }, 12000);
+
+        setTimeout(() => {
+          setDisplayDialogues(false);
+          setDisplayQuestionPopup(true);
+          }, 20000);
+      }
+      
+    }, [displayQuestion])
+  
+  // }
+  
+  
+  
 
   useEffect(() => {
     var ssm = new SpriteSheetManager();
@@ -32,7 +105,7 @@ function App() {
 
     var last = performance.now();
 
-    var game = new Game(canvas, ctx, ssm);
+    var game = new Game(canvas, ctx, ssm, setDisplayQuestion);
     gameRef.current = game;
 
     window.game = game;
@@ -58,7 +131,7 @@ function App() {
       if (delta > 0.25) {
         delta = 0.25;
       }
-
+      
       ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -89,6 +162,7 @@ function App() {
       }, 100);
     };
 
+    
     window.addEventListener("resize", cb);
 
     return () => {
@@ -102,17 +176,39 @@ function App() {
   }, []);
 
   return (
-    <>
-      <canvas ref={canvasRef} />
+    <div className="flex flex-col md:flex-wrap md:flex-row">    
+        <canvas ref={canvasRef} />
+          {displayDialogues && <DialogueBox image={dialogues[dialogue].speaker} text={dialogues[dialogue].text} name={dialogues[dialogue].name} />}
+          <div className={displayQuestionPopup ? "popup-question" : "hide-question"}>
+            <p className="question-heading">SOLVE TO UNDO CORRUPTION: </p>
+            <p className="question-description">What is the function used to print a statement in Python?</p>
+            <div className="question-options">
+              <button onClick={() => {setDisplayOutcome(true); setResultValue("false") }} className="option">A. println()</button>
+              <button onClick={() => {setDisplayOutcome(true); setResultValue("false") }} className="option">B. Print()</button>
+              <button onClick={() => {setDisplayOutcome(true); setResultValue("true") }} className="option">C. print()</button>
+            </div> 
+          </div>
+        <div className='controls'>
+          <kbd>W</kbd>
+          <kbd>A</kbd>
+          <kbd>S</kbd>
+          <kbd>D</kbd>
+        </div>
 
-      <div className='controls'>
-        <kbd>W</kbd>
-        <kbd>A</kbd>
-        <kbd>S</kbd>
-        <kbd>D</kbd>
-      </div>
-    </>
+      {displayOutcome && (<Outcome result={resultValue} />)}
+    </div>
   );
+}
+
+const Outcome = (props) => {
+  const  color = props.result === "true" ? "#00cafe" : "#ca00fe";
+  return (
+    <div class="outcome-box">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4">{props.result === "true" ? "SUCCESS!" : "You made a mistake :["}</h1>
+      <p className="px-5 text-center">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
+      <button class="proceedBtn" style={{backgroundColor: color}} onClick={() => {props.result === "true" ? Router.replace('/Curriculumpage') : Router.reload(window.location.pathname)}}>{props.result === "true" ? "Move onto next lesson" : "Retry"}</button>
+    </div>
+  )
 }
 
 export default App;
