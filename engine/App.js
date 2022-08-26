@@ -10,17 +10,17 @@ function App() {
   const dialogues = {
     0: {
       name: "Alita",
-      speaker: "/speakers/alita.jpeg",
+      speaker: "/speaker/alita.jpeg",
       text: "I see so you're the one creating the glitches in this lab!!"
     },
     1: {
       name: "Xenobug",
-      speaker: "/speakers/unknown.jpg",
+      speaker: "/speaker/unknown.jpg",
       text: "Affirmative! I have destroyed your entire lab and now I will destroy you!"
     },
     2: {
       name: "Alita",
-      speaker: "/speakers/alita.jpeg",
+      speaker: "/speaker/alita.jpeg",
       text: "I won't let you do that to my planet! I know how to correct your corruption. You are a simple print bug after all!"
     }
   }
@@ -31,24 +31,40 @@ function App() {
 
 
   const [displayQuestion, setDisplayQuestion] = useState(false);
+  const [displayOutcome, setDisplayOutcome] = useState(true);
+  const [resultValue, setResultValue] = useState(null);
+  const [displayDialogues, setDisplayDialogues] = useState(false);
+  const [displayQuestionPopup, setDisplayQuestionPopup] = useState(false);
   const [dialogue, setDialogue] = useState(0);
   
   const max = 3;
 
   const i = 0;
-  useEffect(() => {
-   
-    
-    setDialogue(i);
-    setTimeout(() => {  
-      setDialogue(i+1);
-      }, 3000); 
-    
-    setTimeout(() => {
-      setDialogue(i+2);
-      }, 6000);
-  }, [])
 
+  // if (displayQuestion) {
+    useEffect(() => {
+   
+      if (displayQuestion) {
+        setDisplayDialogues(true);
+        setDialogue(i);
+        setTimeout(() => {  
+          setDialogue(i+1);
+          }, 3000); 
+        
+        setTimeout(() => {
+          setDialogue(i+2);
+          }, 6000);
+
+        setTimeout(() => {
+          setDisplayDialogues(false);
+          setDisplayQuestionPopup(true);
+          }, 9000);
+      }
+      
+    }, [displayQuestion])
+  
+  // }
+  
   
 
   useEffect(() => {
@@ -100,7 +116,7 @@ function App() {
       if (delta > 0.25) {
         delta = 0.25;
       }
-
+      
       ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -146,9 +162,9 @@ function App() {
   return (
     <div className="flex flex-col md:flex-wrap md:flex-row">    
         <canvas ref={canvasRef} />
-          <DialogueBox image={dialogues[0].speaker} text={dialogues[dialogue].text} />
-          <div className={displayQuestion ? "popup-question" : "hide-question"}>
-            <p className="question-heading">QUESTION: </p>
+          {displayDialogues && <DialogueBox image={dialogues[dialogue].speaker} text={dialogues[dialogue].text} name={dialogues[dialogue].name} />}
+          <div className={displayQuestionPopup ? "popup-question" : "hide-question"}>
+            <p className="question-heading">SOLVE TO UNDO CORRUPTION: </p>
             <p className="question-description">What is the function used to print a statement in Python?</p>
             <div className="question-options">
               <button className="option">A. println()</button>
@@ -162,8 +178,22 @@ function App() {
           <kbd>S</kbd>
           <kbd>D</kbd>
         </div>
+
+        <Outcome result={resultValue} />
+
     </div>
   );
+}
+
+const Outcome = (props) => {
+  const  color = props.result === "true" ? "#00cafe" : "#ca00fe";
+  return (
+    <div class="outcome-box">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4">{props.result === "true" ? "SUCCESS!" : "You made a mistake :["}</h1>
+      <p className="px-5 text-center">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
+      <button class="proceedBtn" style={{backgroundColor: color}}>{props.result === "true" ? "Move onto next lesson" : "Retry"}</button>
+    </div>
+  )
 }
 
 export default App;

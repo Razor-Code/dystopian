@@ -7,7 +7,7 @@ export default function DialogueBox(props) {
       <div className={styles.speakerImage}>
         <Image src={props.image} width={100} height={100} />
       </div>
-      <p className={styles.speakerName}>Pranshu Jha</p>
+      <p className={styles.speakerName}>{props.name}</p>
       <p>{props.text}</p>
       <div className={styles.dialogueBoxArrow} />
     </div>
