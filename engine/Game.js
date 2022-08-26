@@ -347,22 +347,22 @@ export default class Game {
         
 
         if (collisionFlag & 1) {
-          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 460, 460);
+          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 500, 500);
           // this.render.drawRect(x, y, width, 1, color);
           // this.render.drawText("0", x + 0.1, y + 0.53, 14);
         }
         if (collisionFlag & 2) {
-          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 460, 460);
+          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 500, 500);
           // this.render.drawRect(x + (1 - width), y, width, 1, color);
           // this.render.drawText("1", x + 0.82, y + 0.53, 14);
         }
         if (collisionFlag & 4) {
-          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 460, 460);
+          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 500, 500);
           // this.render.drawRect(x, y, 1, width, color);
           // this.render.drawText("0", x + 0.49, y + 0.2, 14);
         }
         if (collisionFlag & 8) {
-          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 460, 460);
+          this.render.drawImage(groundBottomLeft, x, y, 16, 16, 0, 0, 500, 500);
           // this.render.drawRect(x, y + (1 - width), 1, width, color);
           // this.render.drawText("1", x + 0.49, y + 0.92, 14);
         }
@@ -439,5 +439,11 @@ export default class Game {
     this.player.update(delta);
     this.particleSystem.update(delta);
     this.camera.update(delta);
+
+    
+    const background = new Image();
+    background.src = "/tiles/background.png";
+    this.ctx.drawImage(background, 0, 0, this.canvas.width, this.canvas.height);
+
   }
 }

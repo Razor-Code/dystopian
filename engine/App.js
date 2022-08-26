@@ -212,13 +212,17 @@ const Outcome = (props) => {
     <div class="outcome-box flex flex-col ">
       <h1 className="heading">{props.result === "true" ? "SUCCESS!" : "You made a mistake :["}</h1>
       <p className="px-10">
-        Congratulations on successfully completing this lesson! Feel free to stay back or move on to the next one.
+        {props.result === "true" ? "Congratulations on successfully completing this lesson! Feel free to stay back or move on to the next one." : "Please go through the level again."}
       </p>
-      <p className="sub-heading">Through this level you learnt:</p>
-      <ul>
-        <li>Input Statements</li>
-        <li>Output Statements</li>
-      </ul>
+      {props.result === "true" ? (
+        <>
+          <p className="sub-heading">Through this level you learnt:</p>
+          <ul>
+            <li>Input Statements</li>
+            <li>Output Statements</li>
+          </ul>
+        </>
+      ) : null}
       <button class="proceedBtn" style={{backgroundColor: color}} onClick={() => {props.result === "true" ? Router.replace('/Curriculumpage') : Router.reload(window.location.pathname)}}>{props.result === "true" ? "Move onto next lesson" : "Retry"}</button>
     </div>
   )
