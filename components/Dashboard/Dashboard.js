@@ -48,13 +48,12 @@ const Dashboard = () => {
             
             </div>
 
-            <div className={style.Dashboard}>
+            <div className={styles.Dashboard}>
 
             <div className={style.XP}>
               <div className={style.XP1}>
                 <h2 className={style.XPHead}>Leaderboard </h2>
-  
-                <Link href="/dashboard" className={style.dash}><div className={style.dashboardbutton}>View DashBoard</div></Link>
+
               </div>
               <div className={style.XP2}>
   

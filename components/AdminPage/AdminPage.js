@@ -151,7 +151,7 @@ const AdimPage = () => {
             <li className={styles.listitem1}>| Admin</li>
           </ul>
           <ul className={styles.list1}>
-          <Link href=""><div className={styles.forum}>Forum</div></Link>
+          <Link href="https://dystopian.tribeplatform.com/"><div className={styles.forum}>Forum</div></Link>
           <Link href=""><div className= {styles.logout} onClick={logout}>Logout</div></Link>
           </ul>
         </div>
@@ -258,8 +258,15 @@ const AdimPage = () => {
               </div>
 
               <div className={styles.Div4}>
+              <div className={styles.divhead}>
+                Upload File
               </div>
-
+              <div className={styles.divbody}>
+              <img src='https://cdn-icons-png.flaticon.com/128/4007/4007698.png'></img>
+              Search or Browse file
+              <div className={styles.upload}>upload</div>
+              </div>
+              </div>
             </div>
             <div className={styles.user}>
               <div className={styles.userdiv}>
